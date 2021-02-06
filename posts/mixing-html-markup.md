@@ -38,10 +38,10 @@ Therefore to create a table, you are best sticking to pure html:
   <tr>
     <th>row2</th><td>item1,1</td><td>item1,2</td>
   </tr>
-  </table>
+</table>
   ```
-  This table has some bootstrap styling:
-  <table class=".table">
+This table has some bootstrap styling:
+<table class=".table">
   <tr>
     <th></th><th>col1</th> <th>col2</th>
   </tr>
@@ -50,6 +50,6 @@ Therefore to create a table, you are best sticking to pure html:
   <tr>
     <th>row2</th><td>item1,1</td><td>item1,2</td>
   </tr>
-  </table>
+</table>
 
 
