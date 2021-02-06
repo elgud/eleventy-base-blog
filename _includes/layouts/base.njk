@@ -14,7 +14,9 @@
   </head>
   <body>
     <header>
-      <h1 class="home"><a href="{{ '/' | url }}">{{ metadata.title }}</a></h1>
+      <p class="home"><mark><strong>
+        <a href="{{ '/' | url }}">{{ metadata.title }}</a>
+      </strong></mark></p>
 
       {#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
       <ul class="nav">
@@ -25,8 +27,11 @@
     </header>
 
     <main{% if templateClass %} class="{{ templateClass }}"{% endif %}>
-      <h2>Elgud's Blog<h2>
+      <!-- <h2>Elgud's Blog</h2> --!>
+
+      <div class="container-fluid">
       {{ content | safe }}
+      </div>
     </main>
 
     <footer></footer>
