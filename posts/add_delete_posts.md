@@ -14,7 +14,7 @@ This is a post to simply see how to
 
 **It is probably best to not make major content changes with the server running. Doing so can mess up _site in strange ways.**
 
-## To add a post, 
+## To add a post: 
 1. simply create a new file in posts with an appropriate name, 
 2. cut and paste the header from a previous post and edit,
 3. add your content in markdown
