@@ -105,5 +105,103 @@ Then there are three single files in _site:
         </tbody>
     </table>
 </div>
-<tr><td>posts.json</td>
-                <td>template for matching tags to posts?</td>
+
+## The files that construct the final html site files
+The above html files are constructed by combining templates and content. The content of some of the files is generated automatically.
+
+As above, we first look at the folders and then the individual files
+<div class="table-responsive">
+    <table class="table table-hover table-bordered border-primary align-middle">
+        <thead>
+            <tr>
+                <th>folder</th><th>file</th><th>comment</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr><td>_data</td><td>metadata.json</td>
+            <td>Top level information about the site such as title and description.</td>
+        </tr>
+        <tr><td>_includes</td><td>postslists.njk</td><td>Code for creating a chronologial list of posts and lists of posts by tag</td>
+        </tr>
+        <tr><td rowspan="3">_includes/layouts</td><td>base.njk</td>
+            <td>HTML that goes in all pages: head, header, almost empty main, and (empty) footer. Uses metadata.json</td>
+        </tr>
+        <tr><td>home.njk</td><td>Template for home page. Uses base.njk, template-class: tmpl-home.</td>
+        </tr>
+        <tr><td>post.njk</td><td>Template for blog post pages. Uses base.njk, template-class: tmpl-post. Code for automatically providing links to next and previous posts.</td>
+        </tr>
+        <tr><td>about</td><td>index.md</td><td>content for about page (about/index.html) in markdown format</td>
+        </tr>
+        <tr><td rowspan="2">css</td><td>index.css</td><td rowspan="2">css files are copied to css directory in _site as is</td>
+        </tr>
+        <tr><td>prism-base16-monokai.dark.css</td></tr>
+        <tr>
+                <td rowspan="3">feed</td>
+                <td>htaccess.njk</td><td>code to create an .htaccess file</td>
+            </tr>
+            <tr>
+                <td>json.njk</td><td>code to create a json file of contents of whole site (feed.json)</td>
+            </tr>
+            <tr>
+                <td>feed.njk</td><td>code to create an xml file of contents of whole site (feed.xml)</td>
+            </tr>
+            <tr><td>img</td><td>.gitkeep</td>Copied to _site as is</td></tr>
+            <tr><td>node_modules</td><td>loads of directories</td><td>have not explored</td></tr>
+            <tr><td rowspan="5">posts</td><td>firstpost.md</td>
+                <td rowspan="4">Content for blog posts in markdown. One file for each post</td>
+            </tr>
+            <tr><td>secondpost.md</td></tr>
+            <tr><td>thirdpost.md</td></tr>
+            <tr><td>fourthpost.md</td></tr>
+            <tr><td>posts.json</td><td>Something to do with matching posts to tags?</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-bordered border-primary align-middle">
+        <thead>
+            <tr>
+                <th>file</th><th>comment</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>404.md</td><td>Content for error page when a page is not found. Uses home.njk. Becomes 404.html</td>
+            </tr>
+            <tr><td>archive.njk</td><td>Uses home.njk and postlists.njk. Creates a list of posts. The page shown under Archive. Becomes posts/index.html</td>
+            </tr>
+            <tr><td>index.njk</td><td>Home page content. Uses home.njk. Generates a list of recent blog posts.</td>
+            </tr>
+            <tr><td>page-list.njk</td><td>Creates a table of links and titles that includes every page in the site.</td>
+            </tr>
+            <tr><td>sitemap.xml.njk</td><td>Generates sitemap.xml</td></tr>
+            <tr><td>tags-list.njk</td><td>Creates tags/index.html in _site. Creates a list of tags that link to pages that list the posts where those tags are included. Uses home.njk</td>
+            </tr>
+            <tr><td>tags.njk</td><td>Uses home.njk and postslist.njk. Generates a page which lists the posts for a given tag.</td></tr>
+        </tbody>
+    </table>
+</div>
+
+### Other files
+<div class="table-responsive">
+    <table class="table table-hover table-bordered border-primary align-middle">
+        <thead>
+            <tr>
+                <th>file</th><th>comment</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>.editorconfig</td><td>Some editor settigs to do with indenting, white space and EOL.</td>
+            </tr><td>.eleventy.js</td><td>Configuration file for eleventy</td>
+            </tr>
+            <tr><td>.eleventyignore</td><td>Just contains README.md. We don't want README to be part of the site.</td>
+            </tr>
+            <tr><td>package.json</td><td>json file to do with the package. Seems to alias npm commands.</td>
+            </tr>
+            <tr><td>README.md</td><td>Information about how to set up eleventy and the base blog</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
