@@ -29,7 +29,7 @@ So the internet is correct. Apparently there is a markup engine that will cope w
 
 Therefore to create a table, you are best sticking to pure html:
 ```
-<table class=".table">
+<table class="table">
   <tr>
     <th></th><th>col1</th> <th>col2</th>
   </tr>
