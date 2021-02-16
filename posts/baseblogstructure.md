@@ -153,7 +153,7 @@ As above, we first look at the folders and then the individual files
             <tr><td>secondpost.md</td></tr>
             <tr><td>thirdpost.md</td></tr>
             <tr><td>fourthpost.md</td></tr>
-            <tr><td>posts.json</td><td>Something to do with matching posts to tags?</td>
+            <tr><td>posts.json</td><td>Add the tag 'posts' to all content files in the directory.</td>
             </tr>
         </tbody>
     </table>
