@@ -5,14 +5,9 @@ eleventyNavigation:
   order: 1
 ---
 
-<<<<<<< HEAD
-{% set maxPosts = collections.posts.length | min(3) %}
+{% set maxPosts = collections.posts.length | min(10) %}
 <h1>Latest {% if maxPosts == 1 %}Post{% else %}{{ maxPosts }} Posts{% endif %}</h1>
 <br>
-=======
-{% set maxPosts = collections.posts.length | min(10) %}
-<h2>Latest {% if maxPosts == 1 %}Post{% else %}{{ maxPosts }} Posts{% endif %}</h2>
->>>>>>> content
 
 {% set postslist = collections.posts | head(-10) %}
 {% set postslistCounter = collections.posts | length %}
