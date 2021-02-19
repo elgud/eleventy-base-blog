@@ -13,7 +13,7 @@
     <link rel="alternate" href="{{ metadata.jsonfeed.path | url }}" type="application/json" title="{{ metadata.title }}">
   </head>
   <body class="text-body p-4">
-    <header class="mt-4 border=bottom">
+    <header class="mt-4 mb-4">
       <div class="d-flex align-items-center pb-4">
         <!-- "logo" -->
         <a href="{{ '/' | url }}" 
@@ -45,11 +45,9 @@
 
     </header>
 
-    <main{% if templateClass %} class="{{ templateClass }}"{% endif %}>
-      <!-- <h2>Elgud's Blog</h2> --!>
-
-      <div class="container-fluid">
-      {{ content | safe }}
+    <main class="container-fluid">
+      <div {% if templateClass %} class="{{ templateClass }}"{% endif %}>
+        {{ content | safe }}
       </div>
     </main>
 

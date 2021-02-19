@@ -23,12 +23,7 @@ a[href] {
 a[href]:visited {
   color: var(--navy);
 }
-main {
-  padding: 1rem;
-}
-main :first-child {
-  margin-top: 0;
-}
+
 
 pre,
 code {
