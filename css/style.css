@@ -8,9 +8,7 @@
   --blue: #082840;
   --white: #fff;
 }
-* {
-  box-sizing: border-box;
-}
+
 html,
 body {
   padding: 0;
