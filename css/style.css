@@ -9,17 +9,6 @@
   --white: #fff;
 }
 
-<<<<<<< HEAD
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: system-ui, sans-serif;
-  color: var(--darkgray);
-  background-color: var(--white);
-}
-=======
->>>>>>> html-bootstrap
 p:last-child {
   margin-bottom: 0;
 }
@@ -40,17 +29,6 @@ main {
 main :first-child {
   margin-top: 0;
 }
-<<<<<<< HEAD
-header {
-  border-bottom: 1px dashed var(--lightgray);
-}
-header:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-=======
->>>>>>> html-bootstrap
 
 pre,
 code {
@@ -107,20 +85,6 @@ pre {
   background-color: #902f2f;
 }
 
-<<<<<<< HEAD
-/* Header */
-.home {
-  padding: 0 1rem;
-  float: left;
-  margin: 1rem 0; /* 16px /16 */
-  font-size: 1em; /* 16px /16 */
-}
-.home :link:not(:hover) {
-  text-decoration: none;
-}
-
-=======
->>>>>>> html-bootstrap
 /* Nav */
 .nav {
   padding: 0;
@@ -194,18 +158,6 @@ a[href].post-tag:visited {
   color: #fff;
 }
 
-<<<<<<< HEAD
-/* Warning */
-.warning {
-  background-color: #ffc;
-  padding: 1em 0.625em; /* 16px 10px /16 */
-}
-.warning ol:only-child {
-  margin: 0;
-}
-
-=======
->>>>>>> html-bootstrap
 /* Direct Links / Markdown Headers */
 .direct-link {
   font-family: sans-serif;
