@@ -9,6 +9,7 @@
   --white: #fff;
 }
 
+<<<<<<< HEAD
 html,
 body {
   padding: 0;
@@ -17,6 +18,8 @@ body {
   color: var(--darkgray);
   background-color: var(--white);
 }
+=======
+>>>>>>> html-bootstrap
 p:last-child {
   margin-bottom: 0;
 }
@@ -37,6 +40,7 @@ main {
 main :first-child {
   margin-top: 0;
 }
+<<<<<<< HEAD
 header {
   border-bottom: 1px dashed var(--lightgray);
 }
@@ -45,6 +49,8 @@ header:after {
   display: table;
   clear: both;
 }
+=======
+>>>>>>> html-bootstrap
 
 pre,
 code {
@@ -101,6 +107,7 @@ pre {
   background-color: #902f2f;
 }
 
+<<<<<<< HEAD
 /* Header */
 .home {
   padding: 0 1rem;
@@ -112,6 +119,8 @@ pre {
   text-decoration: none;
 }
 
+=======
+>>>>>>> html-bootstrap
 /* Nav */
 .nav {
   padding: 0;
@@ -185,6 +194,7 @@ a[href].post-tag:visited {
   color: #fff;
 }
 
+<<<<<<< HEAD
 /* Warning */
 .warning {
   background-color: #ffc;
@@ -194,6 +204,8 @@ a[href].post-tag:visited {
   margin: 0;
 }
 
+=======
+>>>>>>> html-bootstrap
 /* Direct Links / Markdown Headers */
 .direct-link {
   font-family: sans-serif;

@@ -12,18 +12,37 @@
     <link rel="alternate" href="{{ metadata.feed.path | url }}" type="application/atom+xml" title="{{ metadata.title }}">
     <link rel="alternate" href="{{ metadata.jsonfeed.path | url }}" type="application/json" title="{{ metadata.title }}">
   </head>
-  <body>
-    <header>
-      <p class="home"><mark><strong>
-        <a href="{{ '/' | url }}">{{ metadata.title }}</a>
-      </strong></mark></p>
+  <body class="text-body p-4">
+    <header class="mt-4 border=bottom">
+      <div class="d-flex align-items-center pb-4">
+        <!-- "logo" -->
+        <a href="{{ '/' | url }}" 
+            class="text-decoration-none border border-primary 
+                    border-5 rounded-pill ms-4 text-center bg-primary 
+                    text-light bg-gradient px-3">
+            <div class="fs-3">
+                    {{ metadata.title }}
+            </div>
+        </a>
 
-      {#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
-      <ul class="nav">
-      {%- for entry in collections.all | eleventyNavigation %}
-        <li class="nav-item{% if entry.url == page.url %} nav-item-active{% endif %}"><a href="{{ entry.url | url }}">{{ entry.title }}</a></li>
-      {%- endfor %}
-      </ul>
+        <!-- nav bar -->
+        <div class="flex-grow-1 ms-5">
+          {#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
+          <ul class="nav fs-4 ms-5 ">
+            {%- for entry in collections.all | eleventyNavigation %}
+              <li class="nav-item{% if entry.url == page.url %} nav-item-active{% endif %}"><a href="{{ entry.url | url }}">{{ entry.title }}</a></li>
+            {%- endfor %}
+          </ul>
+        </div>
+      </div>  
+
+      <!-- hero image -->
+      <div class="container-fluid pb-4">
+        <div class="ratio ratio-21x9">
+            <img src="{{ '/img/swirl.jpg' | url }}"  class="d-block w-100" alt="a swirl">
+        </div>
+      </div>
+
     </header>
 
     <main{% if templateClass %} class="{{ templateClass }}"{% endif %}>
