@@ -7,9 +7,19 @@ templateClass: tmpl-post
 {{ content | safe }}
 
 <hr>
-<ul>
-  {%- set nextPost = collections.posts | getNextCollectionItem(page) %}
-  {%- if nextPost %}<li>Next: <a href="{{ nextPost.url | url }}">{{ nextPost.data.title }}</a></li>{% endif %}
-  {%- set previousPost = collections.posts | getPreviousCollectionItem(page) %}
-  {%- if previousPost %}<li>Previous: <a href="{{ previousPost.url | url }}">{{ previousPost.data.title }}</a></li>{% endif %}
-</ul>
+<!-- create a flex box where the two items go to far left and far right of 
+    the box -->
+<div class="d-flex justify-content-between text-center">
+  <div class="bg-info text-decoration-none py-2 me-1">
+    {%- set nextPost = collections.posts | getNextCollectionItem(page) %}
+    {%- if nextPost %} <a href="{{ nextPost.url | url }}" 
+        class="text-decoration-none px-3">
+        Next: {{ nextPost.data.title }}</a>{% endif %}
+  </div>
+  <div class="bg-info text-decoration-none py-2 ms-1">
+    {%- set previousPost = collections.posts | getPreviousCollectionItem(page) %}
+    {%- if previousPost %} <a href="{{ previousPost.url | url }}" 
+          class="text-decoration-none px-3">
+          Previous: {{ previousPost.data.title }}</a>{% endif %}
+  </div>
+</div>
