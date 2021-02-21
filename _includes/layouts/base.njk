@@ -25,15 +25,35 @@
             </div>
         </a>
 
-        <!-- nav bar -->
+        <!-- old nav bar 
         <div class="flex-grow-1 ms-5">
           {#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
           <ul class="nav fs-4 ms-5 ">
             {%- for entry in collections.all | eleventyNavigation %}
-              <li class="nav-item{% if entry.url == page.url %} nav-item-active{% endif %}"><a href="{{ entry.url | url }}">{{ entry.title }}</a></li>
+              <li class="nav-item 
+                {% if entry.url == page.url %} nav-item-active{% endif %}">
+                  <a href="{{ entry.url | url }}">{{ entry.title }}</a>
+              </li>
             {%- endfor %}
           </ul>
-        </div>
+        </div> -->
+
+        <nav class="ms-5" role="navigation">
+          {#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
+          <ul class="nav fs-4 ">
+            {%- for entry in collections.all | eleventyNavigation %}
+              <li class="nav-item 
+                {% if entry.url == page.url %} active fw-bold text-decoration-underline" aria-current="page" 
+                  {% else %} " 
+                {% endif %}>
+                  <a class="nav-link" href="{{ entry.url | url }}">
+                    {{ entry.title }}
+                  </a>
+              </li>
+            {%- endfor %}
+          </ul>
+        </nav>
+
       </div>  
 
       <!-- hero image -->
