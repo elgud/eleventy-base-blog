@@ -14,47 +14,47 @@
   </head>
   <body class="text-body p-4">
     <header class="mt-4 mb-4">
-      <div class="d-flex align-items-center pb-4">
-        <!-- "logo" -->
-        <a href="{{ '/' | url }}" 
-            class="text-decoration-none border border-primary 
-                    border-5 rounded-pill ms-4 text-center bg-primary 
-                    text-light bg-gradient px-3">
-            <div class="fs-3">
-                    {{ metadata.title }}
-            </div>
-        </a>
 
-        <!-- old nav bar 
-        <div class="flex-grow-1 ms-5">
+       <!-- collapsible nav bar -->
+      <nav class="navbar navbar-expand-md ms-3 pb-4" role="navigation">
+        <div class="container-fluid">
+
+          <!-- "logo" -->
+          <a href="{{ '/' | url }}" 
+              class="text-decoration-none border border-primary 
+                      border-5 rounded-pill text-center bg-primary 
+                      text-light bg-gradient px-3">
+              <div class="fs-3 text-nowrap">
+                      {{ metadata.title }}
+              </div>
+          </a>
+
+          <!-- button for collapse navigation -->
+          <button class="navbar-toggler navbar-light bg-light" type="button" 
+                    data-bs-toggle="collapse" 
+                    data-bs-target="#navbarNav" aria-controls="navbarNav" 
+                    aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
           {#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
-          <ul class="nav fs-4 ms-5 ">
-            {%- for entry in collections.all | eleventyNavigation %}
-              <li class="nav-item 
-                {% if entry.url == page.url %} nav-item-active{% endif %}">
-                  <a href="{{ entry.url | url }}">{{ entry.title }}</a>
-              </li>
-            {%- endfor %}
-          </ul>
-        </div> -->
-
-        <nav class="ms-5" role="navigation">
-          {#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
-          <ul class="nav fs-4 ">
-            {%- for entry in collections.all | eleventyNavigation %}
-              <li class="nav-item 
-                {% if entry.url == page.url %} active fw-bold text-decoration-underline" aria-current="page" 
-                  {% else %} " 
-                {% endif %}>
-                  <a class="nav-link" href="{{ entry.url | url }}">
-                    {{ entry.title }}
-                  </a>
-              </li>
-            {%- endfor %}
-          </ul>
-        </nav>
-
-      </div>  
+            <!-- nav gives a horizontal menu when click the button
+                navbar-nav gives you a vertical menu -->
+            <ul class="nav fs-4 ms-5">
+              {%- for entry in collections.all | eleventyNavigation %}
+                <li class="nav-item 
+                  {% if entry.url == page.url %} active fw-bold text-decoration-underline" aria-current="page" 
+                    {% else %} " 
+                  {% endif %}>
+                    <a class="nav-link" href="{{ entry.url | url }}">
+                      {{ entry.title }}
+                    </a>
+                </li>
+              {%- endfor %}
+            </ul>
+          </div>
+        </div>
+      </nav>
 
       <!-- hero image -->
       <div class="container-fluid pb-4">
@@ -78,3 +78,20 @@
     <script src="{{ '/css/bootstrap/js/bootstrap.min.js' | url }}"></script>
   </body>
 </html>
+
+ <!-- simple nav bar with no collapse
+        <nav class="ms-5" role="navigation">
+          {#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
+          <ul class="nav fs-4 ">
+            {%- for entry in collections.all | eleventyNavigation %}
+              <li class="nav-item 
+                {% if entry.url == page.url %} active fw-bold text-decoration-underline" aria-current="page" 
+                  {% else %} " 
+                {% endif %}>
+                  <a class="nav-link" href="{{ entry.url | url }}">
+                    {{ entry.title }}
+                  </a>
+              </li>
+            {%- endfor %}
+          </ul>
+        </nav> -->

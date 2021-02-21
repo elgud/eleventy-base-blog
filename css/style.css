@@ -77,7 +77,7 @@ a[href].post-tag:visited {
   color: #fff;
 }
 
-/* Direct Links / Markdown Headers */
+/* Direct Links for permalink / Markdown Headers */
 .direct-link {
   font-family: sans-serif;
   text-decoration: none;
