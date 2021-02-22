@@ -1,7 +1,7 @@
 <div class="mb-5">
   {% for post in postslist | reverse %}
     <div class="card mb-3
-          {% if post.url == url %} postlist-item-active{% endif %}">
+          {% if post.url == url %} card-active{% endif %}">
       <a href="{{ post.url | url }}" class="card-body my-0 pb-1 text-decoration-none">
         <div class="card-title mb-2 d-flex align-items-center">
           <h5 class="me-5 mb-0">{% if post.data.title %}{{ post.data.title }}

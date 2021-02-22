@@ -28,35 +28,14 @@ a[href]:visited {
   text-decoration: underline;
 }
 
-/* Posts list */
-.postlist-item {
-  counter-increment: start-from -1;
+.card:hover {
+  background-color: rgba(13,202,240,0.2);
+  border-color: #0d6efd;
 }
-.postlist-item:before {
-  display: inline-block;
-  pointer-events: none;
-  content: "" counter(start-from, decimal-leading-zero) ". ";
-  line-height: 100%;
-  text-align: right;
-}
-.postlist-date,
-.postlist-item:before {
-  font-size: 0.8125em; /* 13px /16 */
-  color: var(--darkgray);
-}
-.postlist-date {
-  word-spacing: -0.5px;
-}
-.postlist-link {
-  display: inline-block;
-  padding: 0.25em 0.1875em; /* 4px 3px /16 */
-}
-.postlist-item-active .postlist-link {
-  font-weight: bold;
-}
-.tmpl-home .postlist-link {
-  font-size: 1.1875em; /* 19px /16 */
-  font-weight: 700;
+
+.card:active {
+  color: var(--navy);
+  border-color: var(--navy);
 }
 
 /* Tags */
@@ -67,7 +46,7 @@ a[href]:visited {
   font-size: 0.625em; /* 10px /16 */
   padding: 2px 4px;
   margin-left: 0.8em; /* 8px /10 */
-  background-color: var(--red);
+  background-color: #0d6efd;
   color: var(--white);
   border-radius: 0.25em; /* 3px /12 */
   text-decoration: none;
@@ -148,5 +127,3 @@ pre {
 .highlight-line-remove {
   background-color: #902f2f;
 }
-
-
