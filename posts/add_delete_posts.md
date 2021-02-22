@@ -5,6 +5,7 @@ date: 2021-02-06
 tags:
   - add-post
   - delete-post
+  - eleventy-base-blog
 layout: layouts/post.njk
 ---
 

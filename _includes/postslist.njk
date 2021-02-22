@@ -1,20 +1,28 @@
-<ol reversed class="list-unstyled ms-3 pb-3" style="counter-reset: start-from {{ (postslistCounter or postslist.length) + 1 }}">
-{% for post in postslist | reverse %}
-  <li class="postlist-item 
-        {% if post.url == url %} postlist-item-active{% endif %}">
-    <a href="{{ post.url | url }}" class="postlist-link">
-      {% if post.data.title %}{{ post.data.title }}
-      {% else %}<code>{{ post.url }}</code>{% endif %}
-    </a>
-    <time class="postlist-date" datetime="{{ post.date | htmlDateString }}">
-      {{ post.date | readableDate }}
-    </time>
-    {% for tag in post.data.tags %}
-      {%- if collections.tagList.indexOf(tag) != -1 -%}
-      {% set tagUrl %}/tags/{{ tag }}/{% endset %}
-      <a href="{{ tagUrl | url }}" class="post-tag">{{ tag }}</a>
-      {%- endif -%}
-    {% endfor %}
-  </li>
-{% endfor %}
-</ol>
+<div class="mb-5">
+  {% for post in postslist | reverse %}
+    <div class="card mb-3
+          {% if post.url == url %} postlist-item-active{% endif %}">
+      <a href="{{ post.url | url }}" class="card-body my-0 pb-1 text-decoration-none">
+        <div class="card-title mb-2 d-flex align-items-center">
+          <h5 class="me-5 mb-0">{% if post.data.title %}{{ post.data.title }}
+          {% else %}<code>{{ post.url }}</code>{% endif %}</h5>
+          <time class="fw-light text-muted" datetime="{{ post.date | htmlDateString }}">
+            <small>{{ post.date | readableDate }}</small>
+          </time>
+        </div>
+        <div class="card-body py-0">
+          <p class="card-text fs-6 fw-light">{% if post.data.description %}   
+                                  {{post.data.description}}{% endif %}</p>
+        </div>
+      </a>
+      <div class="card-footer">
+        {% for tag in post.data.tags %}
+          {%- if collections.tagList.indexOf(tag) != -1 -%}
+            {% set tagUrl %}/tags/{{ tag }}/{% endset %}
+            <a href="{{ tagUrl | url }}" class="post-tag">{{ tag }}</a>
+          {%- endif -%}
+        {% endfor %}
+      </div>
+    </div>
+  {% endfor %}
+</div>
