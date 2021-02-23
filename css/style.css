@@ -17,10 +17,10 @@ p,
 .tmpl-post li {
   line-height: 1.45;
 }
-a[href] {
+a{
   color: var(--blue);
 }
-a[href]:visited {
+a:visited {
   color: var(--navy);
 }
 
@@ -28,9 +28,11 @@ a[href]:visited {
   text-decoration: underline;
 }
 
-.card:hover {
+a.cd-main-hover:hover {
   background-color: rgba(13,202,240,0.2);
   border-color: #0d6efd;
+  border-style: solid;
+  border-width: 2px;
 }
 
 .card:active {
@@ -39,11 +41,11 @@ a[href]:visited {
 }
 
 /* Tags */
-.post-tag {
+a.post-tag {
   display: inline-block;
   vertical-align: text-top;
   text-transform: uppercase;
-  font-size: 0.625em; /* 10px /16 */
+  font-size: 0.7em;
   padding: 2px 4px;
   margin-left: 0.8em; /* 8px /10 */
   background-color: #0d6efd;
@@ -51,9 +53,13 @@ a[href]:visited {
   border-radius: 0.25em; /* 3px /12 */
   text-decoration: none;
 }
-a[href].post-tag,
-a[href].post-tag:visited {
-  color: #fff;
+
+a.post-tag:hover {
+  background-color: rgba(13,202,240,0.2);
+  border-color: #0d6efd;
+  border-style: solid;
+  border-width: 1px;
+  color: #333;
 }
 
 /* Direct Links for permalink / Markdown Headers */
@@ -63,14 +69,14 @@ a[href].post-tag:visited {
   font-style: normal;
   margin-left: .1em;
 }
-a[href].direct-link,
-a[href].direct-link:visited {
+a.direct-link,
+a.direct-link:visited {
   color: transparent;
 }
-a[href].direct-link:focus,
-a[href].direct-link:focus:visited,
-:hover > a[href].direct-link,
-:hover > a[href].direct-link:visited {
+a.direct-link:focus,
+a.direct-link:focus:visited,
+:hover > a.direct-link,
+:hover > a.direct-link:visited {
   color: #aaa;
 }
 pre,
