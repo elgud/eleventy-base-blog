@@ -30,25 +30,44 @@
           </a>
 
           <!-- button for collapse navigation -->
-          <button class="navbar-toggler navbar-light bg-light" type="button" 
+         <!-- <button class="navbar-toggler navbar-light bg-light" type="button" 
                     data-bs-toggle="collapse" 
                     data-bs-target="#navbarNav" aria-controls="navbarNav" 
                     aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
+          </button> -->
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
           {#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
             <!-- nav gives a horizontal menu when click the button
                 navbar-nav gives you a vertical menu -->
             <ul class="nav fs-4 ms-5">
-              {%- for entry in collections.all | eleventyNavigation %}
-                <li class="nav-item 
+              {% for entry in collections.all | eleventyNavigation %}
+                <li class="nav-item dropdown
                   {% if entry.url == page.url %} active fw-bold text-decoration-underline" aria-current="page" 
                     {% else %} " 
                   {% endif %}>
-                    <a class="nav-link" href="{{ entry.url | url }}">
-                      {{ entry.title }}
-                    </a>
+                  <a href="{{ entry.url | url }}" class="nav-link">
+                      <!-- {% if entry.children.length %}
+                        class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" 
+                        role="button" data-bs-toggle="dropdown" aria-expanded="true"
+                      {% else %} class="nav-link"
+                      {% endif %}> -->
+                    {{ entry.title }}
+                  </a>
+
+                  <!-- deal with children -->
+                  {% if entry.children.length %}
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                      {% for child in entry.children %}
+                        <li >
+                          <a class="dropdown-item" href="{{ child.url | url }}">
+                            {{ child.title }}
+                          </a>
+                        </li>
+                      {% endfor %}
+                    </ul>
+                  {% endif %} 
+
                 </li>
               {%- endfor %}
             </ul>
@@ -75,23 +94,7 @@
 
     <!-- Current page: {{ page.url | url }} -->
 
-    <script src="{{ '/css/bootstrap/js/bootstrap.min.js' | url }}"></script>
+    <script src="{{ '/css/bootstrap/js/bootstrap.bundle.min.js' | url }}"></script>
   </body>
 </html>
 
- <!-- simple nav bar with no collapse
-        <nav class="ms-5" role="navigation">
-          {#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
-          <ul class="nav fs-4 ">
-            {%- for entry in collections.all | eleventyNavigation %}
-              <li class="nav-item 
-                {% if entry.url == page.url %} active fw-bold text-decoration-underline" aria-current="page" 
-                  {% else %} " 
-                {% endif %}>
-                  <a class="nav-link" href="{{ entry.url | url }}">
-                    {{ entry.title }}
-                  </a>
-              </li>
-            {%- endfor %}
-          </ul>
-        </nav> -->
