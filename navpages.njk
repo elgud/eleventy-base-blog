@@ -1,0 +1,79 @@
+---
+permalink: /navpages/
+layout: layouts/home.njk
+---
+<h1>Navigation and Breadcrumbs</h1>
+<br>
+
+<h2>simple nav bar with no collapse</h2>
+<nav class="ms-5" role="navigation">
+    {#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
+    <ul class="nav fs-4 ">
+    {%- for entry in collections.all | eleventyNavigation %}
+        <li class="nav-item 
+        {% if entry.url == page.url %} active fw-bold text-decoration-underline" aria-current="page" 
+            {% else %} " 
+        {% endif %}>
+            <a class="nav-link" href="{{ entry.url | url }}">
+            {{ entry.title }}
+            </a>
+        </li>
+    {%- endfor %}
+    </ul>
+</nav>
+<br>
+
+<h2>simple nav bar with collapse (must include 'logo' to work properly)</h2>
+<nav class="navbar navbar-expand-md ms-3 pb-4" role="navigation">
+    <div class="container-fluid">
+
+        <!-- "logo" -->
+        <a href="{{ '/' | url }}" 
+            class="text-decoration-none border border-primary 
+                    border-5 rounded-pill text-center bg-primary 
+                    text-light bg-gradient px-3">
+            <div class="fs-3 text-nowrap">
+                    {{ metadata.title }}
+            </div>
+        </a>
+
+        <!-- button for collapse navigation -->
+        <button class="navbar-toggler navbar-light bg-light" type="button" 
+                data-bs-toggle="collapse" 
+                data-bs-target="#navbarNav" aria-controls="navbarNav" 
+                aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+        {#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
+        <!-- nav gives a horizontal menu when click the button
+            navbar-nav gives you a vertical menu -->
+        <ul class="nav fs-4 ms-5">
+            {%- for entry in collections.all | eleventyNavigation %}
+            <li class="nav-item 
+                {% if entry.url == page.url %} active fw-bold text-decoration-underline" aria-current="page" 
+                {% else %} " 
+                {% endif %}>
+                <a class="nav-link" href="{{ entry.url | url }}">
+                    {{ entry.title }}
+                </a>
+            </li>
+            {%- endfor %}
+        </ul>
+        </div>
+    </div>
+</nav>
+
+<br>
+<h2>Breadcrumbs test (using the "about-test" page (child of About))
+{% set bread = collections.all | eleventyNavigationBreadcrumb("about-test") %}
+<pre>{{ bread | dump(2) | safe }}</pre>
+
+{{ bread | eleventyNavigationToHtml | safe}}
+<br>
+
+<h2>All pages in navigation</h2>
+{% set navPages = collections.all | eleventyNavigation %}
+
+<pre>{{ navPages | dump(2) | safe }}</pre>
+
