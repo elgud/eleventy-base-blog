@@ -30,34 +30,41 @@
           </a>
 
           <!-- button for collapse navigation -->
-         <!-- <button class="navbar-toggler navbar-light bg-light" type="button" 
+          <button class="navbar-toggler navbar-light bg-light" type="button" 
                     data-bs-toggle="collapse" 
                     data-bs-target="#navbarNav" aria-controls="navbarNav" 
                     aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
-          </button> -->
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
           {#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
             <!-- nav gives a horizontal menu when click the button
                 navbar-nav gives you a vertical menu -->
             <ul class="nav fs-4 ms-5">
               {% for entry in collections.all | eleventyNavigation %}
-                <li class="nav-item dropdown
+                <li class="nav-item
                   {% if entry.url == page.url %} active fw-bold text-decoration-underline" aria-current="page" 
                     {% else %} " 
                   {% endif %}>
-                  <a href="{{ entry.url | url }}" class="nav-link">
-                      <!-- {% if entry.children.length %}
-                        class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" 
-                        role="button" data-bs-toggle="dropdown" aria-expanded="true"
-                      {% else %} class="nav-link"
-                      {% endif %}> -->
-                    {{ entry.title }}
+                  {% if entry.children.length %}
+                    <a class="nav-link dropdown-toggle" id="navbarMenuLink" 
+                        role="button"  data-bs-toggle="dropdown" aria-expanded="false">
+                        dropdown
+                  {% else %} 
+                    <a class="nav-link" href="{{ entry.url | url }}">
+                      {{ entry.title }}
+                  {% endif %}
                   </a>
 
+                      
                   <!-- deal with children -->
                   {% if entry.children.length %}
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <ul class="dropdown-menu" aria-labelledby="navbarMenuLink">
+                      <li>
+                        <a class="dropdown-item" href="{{ entry.url | url }}">
+                          {{ entry.title }}
+                        </a>
+                      </li>
                       {% for child in entry.children %}
                         <li >
                           <a class="dropdown-item" href="{{ child.url | url }}">
