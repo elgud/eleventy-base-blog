@@ -20,8 +20,8 @@ eleventyNavigation:
     function drinkOrder(size,drink){
         var mediumPrice = 2.80;
         var price;
-        var strMessage = 'You have ordered a ' + size;
-        var strError;
+        var strMessage = 'You have ordered a ';
+        var strError = '';
         switch (size) {
             case 'small': 
                 price = 1.2 * mediumPrice;
@@ -33,29 +33,34 @@ eleventyNavigation:
                 price = 0.8 * mediumPrice;
                 break;
             default:
-                strError = "The value for size is not valid";
+                strError += "The value for size is not valid. It should be one of small, medium, large";
                 break;
         }
+        strMessage += size + ' ';
 
         switch (drink){
             case 'cola':
-                strMessage += ' Cola';
+                strMessage += ' Cola ';
             break;
             case 'lemon':
-                strMessage += ' Lemonade';
+                strMessage += ' Lemonade ';
             break;
             case 'orange':
-                strMessage += ' Orangeade';
+                strMessage += ' Orangeade ';
             break;
             default:
-                strError = 'You have ordered a drink we don\'t sell';
+                strError += 'You have ordered a drink we don\'t sell';
             break;
         }
 
-        if (size != 'large' && size != 'medium' && size != 'small'){
+        /*if (size != 'large' && size != 'medium' && size != 'small'){
             strError = 'You have ordered a drink we don\'t sell';
-        }
-        return strMessage;
+        }*/
+
+        if (strError)
+            return strError;
+        else
+            return strMessage + 'which costs £' + price.toFixed(2);
     }
 
     function calculator(number1, number2, operator){
@@ -97,6 +102,28 @@ eleventyNavigation:
         return strMessage + '\n\n';
     }
 
+    function triangle(number){
+        if (isNaN(number))
+            return 'the argumnet to triangle should be a number';
+        return number * (number + 1) / 2;
+    }
+
+    function factorial(number) {
+        if (isNaN(number))
+            return 'the argumnet to factorial should be a number';
+        else if (number == 1)
+            return 1;
+        else
+            return number * factorial(number - 1)
+    }
+
+    /* calculate the number of balls need to make a tetrahedron of side length number
+        This works out as the sum of the triangle numbers because each time, you add a layer that is a triangle.*/
+    function pyramid(number){
+        if (isNaN(number))
+            return 'the argumnet to pyramid should be a number';
+        else return number * (number + 1) * (number + 2) / 6;
+    }
 
     console.log('------task 1 ------');
     console.log(percentage(20,5));
