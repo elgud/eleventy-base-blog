@@ -2,7 +2,7 @@
 permalink: /subnav/
 layout: layouts/home.njk
 ---
-<h1>Navigation and Breadcrumbs</h1>
+<h1>Sub-navigation menus (responsive menus with dropdown lists</h1>
 <br>
 
 <h2> Example nav from bootstrap with drop down list </h2>
@@ -45,69 +45,139 @@ layout: layouts/home.njk
     bootstrap has a made a design decison that you should not be able to use a
     dropdown menu item as a link.</p>
 
-     <!-- collapsible nav bar -->
-      <nav class="navbar navbar-expand-md ms-3 pb-4" role="navigation">
-        <div class="container-fluid">
+<!-- collapsible nav bar -->
+<nav class="navbar navbar-expand-md ms-3 pb-4" role="navigation">
+<div class="container-fluid">
 
-          <!-- "logo" -->
-          <a href="{{ '/' | url }}" 
-              class="text-decoration-none border border-primary 
-                      border-5 rounded-pill text-center bg-primary 
-                      text-light bg-gradient px-3">
-              <div class="fs-3 text-nowrap">
-                      {{ metadata.title }}
-              </div>
-          </a>
-
-          <!-- button for collapse navigation -->
-          <button class="navbar-toggler navbar-light bg-light" type="button" 
-                    data-bs-toggle="collapse" 
-                    data-bs-target="#navbarNav" aria-controls="navbarNav" 
-                    aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-          {#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
-            <!-- nav gives a horizontal menu when click the button
-                navbar-nav gives you a vertical menu -->
-            <ul class="nav fs-4 ms-5">
-              {% for entry in collections.all | eleventyNavigation %}
-                <li class="nav-item
-                  {% if entry.url == page.url %} active fw-bold text-decoration-underline" aria-current="page" 
-                    {% else %} " 
-                  {% endif %}>
-                  {% if entry.children.length %}
-                    <a class="nav-link dropdown-toggle" id="navbarMenuLink" 
-                        role="button"  data-bs-toggle="dropdown" aria-expanded="false">
-                        dropdown
-                  {% else %} 
-                    <a class="nav-link" href="{{ entry.url | url }}">
-                      {{ entry.title }}
-                  {% endif %}
-                  </a>
-
-                      
-                  <!-- deal with children -->
-                  {% if entry.children.length %}
-                    <ul class="dropdown-menu" aria-labelledby="navbarMenuLink">
-                      <li>
-                        <a class="dropdown-item" href="{{ entry.url | url }}">
-                          {{ entry.title }}
-                        </a>
-                      </li>
-                      {% for child in entry.children %}
-                        <li >
-                          <a class="dropdown-item" href="{{ child.url | url }}">
-                            {{ child.title }}
-                          </a>
-                        </li>
-                      {% endfor %}
-                    </ul>
-                  {% endif %} 
-
-                </li>
-              {%- endfor %}
-            </ul>
-          </div>
+    <!-- "logo" -->
+    <a href="{{ '/' | url }}" 
+        class="text-decoration-none border border-primary 
+                border-5 rounded-pill text-center bg-primary 
+                text-light bg-gradient px-3">
+        <div class="fs-3 text-nowrap">
+                {{ metadata.title }}
         </div>
-      </nav>
+    </a>
+
+    <!-- button for collapse navigation -->
+    <button class="navbar-toggler navbar-light bg-light" type="button" 
+            data-bs-toggle="collapse" 
+            data-bs-target="#navbarNav" aria-controls="navbarNav" 
+            aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+    {#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
+    <!-- nav gives a horizontal menu when click the button
+        navbar-nav gives you a vertical menu -->
+    <ul class="nav fs-4 ms-5">
+        {% for entry in collections.all | eleventyNavigation %}
+        <li class="nav-item
+            {% if entry.url == page.url %} active fw-bold text-decoration-underline" aria-current="page" 
+            {% else %} " 
+            {% endif %}>
+            {% if entry.children.length %}
+            <a class="nav-link dropdown-toggle" id="navbarMenuLink" 
+                role="button"  data-bs-toggle="dropdown" aria-expanded="false">
+                dropdown
+            {% else %} 
+            <a class="nav-link" href="{{ entry.url | url }}">
+                {{ entry.title }}
+            {% endif %}
+            </a>
+
+                
+            <!-- deal with children -->
+            {% if entry.children.length %}
+            <ul class="dropdown-menu" aria-labelledby="navbarMenuLink">
+                <li>
+                <a class="dropdown-item" href="{{ entry.url | url }}">
+                    {{ entry.title }}
+                </a>
+                </li>
+                {% for child in entry.children %}
+                <li >
+                    <a class="dropdown-item" href="{{ child.url | url }}">
+                    {{ child.title }}
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+            {% endif %} 
+
+        </li>
+        {%- endfor %}
+    </ul>
+    </div>
+</div>
+</nav>
+
+<br>
+
+<h2>Navigation using parent-type property (either dummy or index)<h2>
+<!-- collapsible nav bar -->
+<nav class="navbar navbar-expand-md ms-3 pb-4" role="navigation">
+<div class="container-fluid">
+
+    <!-- "logo" -->
+    <a href="{{ '/' | url }}" 
+        class="text-decoration-none border border-primary 
+                border-5 rounded-pill text-center bg-primary 
+                text-light bg-gradient px-3">
+        <div class="fs-3 text-nowrap">
+                {{ metadata.title }}
+        </div>
+    </a>
+
+    <!-- button for collapse navigation -->
+    <button class="navbar-toggler navbar-light bg-light" type="button" 
+            data-bs-toggle="collapse" 
+            data-bs-target="#navbarNav" aria-controls="navbarNav" 
+            aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+    {#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
+    <!-- nav gives a horizontal menu when click the button
+        navbar-nav gives you a vertical menu -->
+    <ul class="nav fs-4 ms-5">
+        {% for entry in collections.all | eleventyNavigation %}
+        <li class="nav-item dropdown
+            {% if entry.url == page.url %} active fw-bold text-decoration-underline" aria-current="page" 
+            {% else %} " 
+            {% endif %}>
+            {% if entry.children.length %}
+            <a class="nav-link dropdown-toggle" id="navbarMenuLink" 
+                role="button"  data-bs-toggle="dropdown" aria-expanded="false">
+                dropdown
+            {% else %} 
+            <a class="nav-link" href="{{ entry.url | url }}">
+                {{ entry.title }}
+            {% endif %}
+            </a>
+
+                
+            <!-- deal with children -->
+            {% if entry.children.length %}
+            <ul class="dropdown-menu" aria-labelledby="navbarMenuLink">
+                <li>
+                <a class="dropdown-item" href="{{ entry.url | url }}">
+                    {{ entry.title }}
+                </a>
+                </li>
+                {% for child in entry.children %}
+                <li >
+                    <a class="dropdown-item" href="{{ child.url | url }}">
+                    {{ child.title }}
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+            {% endif %} 
+
+        </li>
+        {%- endfor %}
+    </ul>
+    </div>
+</div>
+</nav>
