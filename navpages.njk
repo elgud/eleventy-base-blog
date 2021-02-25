@@ -79,3 +79,10 @@ layout: layouts/home.njk
 
 <pre>{{ navPages | dump(2) | safe }}</pre>
 
+{% for page in navPages %}
+    {% if page.children.length%}
+        <pre> {{page | dump(2) | safe }}</pre>
+        {{page.title}}-{{page.order}}-{{page.parentType}}-{{page.key}}
+    {% endif %}
+{% endfor %}
+
