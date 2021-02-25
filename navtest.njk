@@ -1,0 +1,101 @@
+---
+permalink: /navtest/
+layout: layouts/home.njk
+---
+<h1>Place to test navigation</h1>
+<p>test test test</p>
+<br>
+
+<h2>Navigation using parent-type property (either dummy or index)</h2>
+<p>Probably not good to have two different behaviours in the same nav bar!</p>
+
+<!-- collapsible nav bar -->
+<nav class="navbar navbar-expand-md ms-3 pb-4" role="navigation">
+    <div class="container-fluid">
+
+        <!-- "logo" -->
+        <a href="{{ '/' | url }}" 
+            class="text-decoration-none border border-primary 
+                    border-5 rounded-pill text-center bg-primary 
+                    text-light bg-gradient px-3">
+            <div class="fs-3 text-nowrap">
+                    {{ metadata.title }}
+            </div>
+        </a>
+
+        <!-- button for collapse navigation -->
+        <button class="navbar-toggler navbar-light bg-light" type="button" 
+                data-bs-toggle="collapse" 
+                data-bs-target="#navbarNav" aria-controls="navbarNav" 
+                aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- collapsible responsive nav bar -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+        {#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
+        <!-- nav gives a horizontal menu when click the button navbar-nav gives you a vertical menu -->
+            <ul class="nav fs-4 ms-5">
+                {% for entry in collections.all | eleventyNavigation %}
+                    {% if not entry.children.length %}
+                        <li class="nav-item 
+                        {% if entry.url == page.url %} active fw-bold text-decoration-underline" aria-current="page" 
+                        {% else %} " 
+                        {% endif %}>
+                            <a class="nav-link" href="{{ entry.url | url }}">
+                                {{ entry.title }}
+                            </a>
+                        </li>
+                    {% elseif entry.parent-type == 'dummy' %}
+                        <li class="nav-item dropdown
+                            {% if entry.url == page.url %} active fw-bold text-decoration-underline" aria-current="page" 
+                            {% else %} " 
+                            {% endif %}>    
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarMenuLink" 
+                                    role="button"  data-bs-toggle="dropdown" 
+                                    aria-expanded="false" >  
+                                D-{{ entry.title }}
+                            </a>
+
+                            <!-- deal with children -->
+                            <ul class="dropdown-menu" aria-labelledby="navbarMenuLink">
+                                {% for child in entry.children %}
+                                <li >
+                                    <a class="dropdown-item" href="{{ child.url | url }}">
+                                    {{ child.title }}
+                                    </a>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                    {% else %} <!-- parent-type = 'index' (hopefully) -->
+                        <li class="nav-item dropdown
+                        {% if entry.url == page.url %} active fw-bold text-decoration-underline" aria-current="page" 
+                        {% else %} " 
+                        {% endif %}>
+                            <a class="nav-link" href="{{ entry.url | url }}">
+                                {{ entry.title }}
+                            </a>
+
+                            <!-- deal with children -->
+                            <a class="nav-link dropdown-toggle" id="navbarMenuLink" 
+                                    role="button"  data-bs-toggle="dropdown" 
+                                    aria-expanded="false" href="#">  
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarMenuLink">
+                                {% for child in entry.children %}
+                                <li >
+                                    <a class="dropdown-item" href="{{ child.url | url }}">
+                                        {{ child.title }}
+                                    </a>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                    {% endif %}
+                </li>
+                {%- endfor %}
+            </ul>
+        </div>
+    </div>
+</nav>
