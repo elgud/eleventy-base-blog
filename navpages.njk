@@ -5,6 +5,31 @@ layout: layouts/home.njk
 <h1>Navigation and Breadcrumbs</h1>
 <br>
 
+<h2>Very simple nav bar where children appear on hover</h2>
+This is an example from Alex to illustrate how nav bars with hover work.
+<style>
+    .menuExample li {display:inline-block;padding:30px;}
+    .menuExample li ul {display:none;}
+    .menuExample li:hover ul {display:block;background:yellow;}
+</style>
+<ul class="menuExample">
+    <li>
+        Menu Item
+        <ul>
+            <li>sub menu item</li>
+            <li>sub menu item</li>
+            <li>sub menu item</li>
+        </ul>
+    </li>
+    <li>
+        Menu Item
+    </li>
+    <li>
+        Menu Item
+    </li>
+</ul>
+
+<br>
 <h2>simple nav bar with no collapse</h2>
 <nav class="ms-5" role="navigation">
     {#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
