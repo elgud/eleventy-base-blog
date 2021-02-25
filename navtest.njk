@@ -46,7 +46,7 @@ layout: layouts/home.njk
                                 {{ entry.title }}
                             </a>
                         </li>
-                    {% elseif entry.parent-type == 'dummy' %}
+                    {% elseif entry.parentType == 'dummy'%}
                         <li class="nav-item dropdown
                             {% if entry.url == page.url %} active fw-bold text-decoration-underline" aria-current="page" 
                             {% else %} " 
@@ -54,7 +54,7 @@ layout: layouts/home.njk
                             <a class="nav-link dropdown-toggle" href="#" id="navbarMenuLink" 
                                     role="button"  data-bs-toggle="dropdown" 
                                     aria-expanded="false" >  
-                                D-{{ entry.title }}
+                                {{ entry.title }}
                             </a>
 
                             <!-- deal with children -->
