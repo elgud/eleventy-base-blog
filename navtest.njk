@@ -46,54 +46,44 @@ layout: layouts/home.njk
                                 {{ entry.title }}
                             </a>
                         </li>
-                    {% elseif entry.parentType == 'dummy'%}
-                        <li class="nav-item dropdown
+                    {% else %} <!-- there are children -->
+                        {% if entry.parentType == 'dummy'%} <!-- empty parent page with no content -->
+                            <li class="nav-item dropdown
+                                {% if entry.url == page.url %} active fw-bold" aria-current="page" 
+                                {% else %} " 
+                                {% endif %}>    
+                                <div class="nav-link dropdown-toggle text-decoration-none" 
+                                        role="button"  data-bs-toggle="dropdown" 
+                                        aria-expanded="false" >  
+                                    {{ entry.title }}
+                                </div>
+                        {% else %} <!-- parent-type = 'index' (hopefully - can actually just mark dummy pages) -->
+                            <li class="nav-item dropdown d-flex
                             {% if entry.url == page.url %} active fw-bold text-decoration-underline" aria-current="page" 
                             {% else %} " 
-                            {% endif %}>    
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarMenuLink" 
-                                    role="button"  data-bs-toggle="dropdown" 
-                                    aria-expanded="false" >  
-                                {{ entry.title }}
-                            </a>
+                            {% endif %}>
+                                <a class="nav-link" href="{{ entry.url | url }}">
+                                    {{ entry.title }}
+                                </a>
 
-                            <!-- deal with children -->
-                            <ul class="dropdown-menu" aria-labelledby="navbarMenuLink">
-                                {% for child in entry.children %}
-                                <li >
-                                    <a class="dropdown-item" href="{{ child.url | url }}">
-                                    {{ child.title }}
-                                    </a>
-                                </li>
-                                {% endfor %}
-                            </ul>
-                        </li>
-                    {% else %} <!-- parent-type = 'index' (hopefully) -->
-                        <li class="nav-item dropdown
-                        {% if entry.url == page.url %} active fw-bold text-decoration-underline" aria-current="page" 
-                        {% else %} " 
-                        {% endif %}>
-                            <a class="nav-link" href="{{ entry.url | url }}">
-                                {{ entry.title }}
-                            </a>
-
-                            <!-- deal with children -->
-                            <a class="nav-link dropdown-toggle" id="navbarMenuLink" 
+                                <div class="nav-link dropdown-toggle" id="navbarMenuLink" 
                                     role="button"  data-bs-toggle="dropdown" 
                                     aria-expanded="false" href="#">  
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarMenuLink">
-                                {% for child in entry.children %}
-                                <li >
-                                    <a class="dropdown-item" href="{{ child.url | url }}">
-                                        {{ child.title }}
-                                    </a>
-                                </li>
-                                {% endfor %}
-                            </ul>
-                        </li>
+                                </div>
+                        {% endif %} <!-- Finished dealing with top menu item, but still need to deal with children -->
+                    
+                        <!-- deal with children for both types of dropdown menu item -->
+                        <ul class="dropdown-menu" aria-labelledby="navbarMenuLink">
+                            {% for child in entry.children %}
+                            <li >
+                                <a class="dropdown-item" href="{{ child.url | url }}">
+                                {{ child.title }}
+                                </a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </li>
                     {% endif %}
-                </li>
                 {%- endfor %}
             </ul>
         </div>
