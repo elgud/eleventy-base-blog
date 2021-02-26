@@ -103,15 +103,25 @@ eleventyNavigation:
     }
 
     function triangle(number){
+        // check the argument
         if (isNaN(number))
             return 'the argumnet to triangle should be a number';
+        if (!Number.isInteger(number) || number < 1 )
+            return 'the argument to triangle must be a positive whole number greater or equal to one.';
+
+        // do the calculation
         return number * (number + 1) / 2;
     }
 
     function factorial(number) {
+        // check the argument
         if (isNaN(number))
             return 'the argumnet to factorial should be a number';
-        else if (number == 1)
+        if (!Number.isInteger(number) || number < 1 )
+            return 'the argument to factorial must be a positive whole number greater or equal to one.';
+
+        // do calculation
+        if (number == 1)
             return 1;
         else
             return number * factorial(number - 1)
@@ -120,9 +130,14 @@ eleventyNavigation:
     /* calculate the number of balls need to make a tetrahedron of side length number
         This works out as the sum of the triangle numbers because each time, you add a layer that is a triangle.*/
     function pyramid(number){
+        // check argument
         if (isNaN(number))
             return 'the argumnet to pyramid should be a number';
-        else return number * (number + 1) * (number + 2) / 6;
+        if (!Number.isInteger(number) || number < 1 )
+            return 'the argument to factorial must be a positive whole number greater or equal to one.';
+
+        // do the calculation
+        return number * (number + 1) * (number + 2) / 6;
     }
 
     console.log('------task 1 ------');
