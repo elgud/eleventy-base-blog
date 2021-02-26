@@ -4,6 +4,7 @@ title: About Me
 templateClass: tmpl-post
 eleventyNavigation:
   key: About Me
+  parentType: index
   order: 3
 ---
 

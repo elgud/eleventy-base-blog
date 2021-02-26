@@ -1,0 +1,119 @@
+---
+permalink: /subnav/
+layout: layouts/home.njk
+---
+<h1>Sub-navigation menus (responsive menus with dropdown lists</h1>
+<p>test test test</p>
+<br>
+<br>
+
+<h2> Example nav from bootstrap with drop down list </h2>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Features</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Pricing</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Dropdown link
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<br>
+
+<h2> First attempt of getting sub navigation to work </h2>
+<p> The problem is that eleventyNavigation works on having parents of subpages but 
+    bootstrap has a made a design decison that you should not be able to use a
+    dropdown menu item as a link.</p>
+
+<!-- collapsible nav bar -->
+<nav class="navbar navbar-expand-md ms-3 pb-4" role="navigation">
+<div class="container-fluid">
+
+    <!-- "logo" -->
+    <a href="{{ '/' | url }}" 
+        class="text-decoration-none border border-primary 
+                border-5 rounded-pill text-center bg-primary 
+                text-light bg-gradient px-3">
+        <div class="fs-3 text-nowrap">
+                {{ metadata.title }}
+        </div>
+    </a>
+
+    <!-- button for collapse navigation -->
+    <button class="navbar-toggler navbar-light bg-light" type="button" 
+            data-bs-toggle="collapse" 
+            data-bs-target="#navbarNav" aria-controls="navbarNav" 
+            aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+    {#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
+    <!-- nav gives a horizontal menu when click the button
+        navbar-nav gives you a vertical menu -->
+    <ul class="nav fs-4 ms-5">
+        {% for entry in collections.all | eleventyNavigation %}
+        <li class="nav-item
+            {% if entry.url == page.url %} active fw-bold text-decoration-underline" aria-current="page" 
+            {% else %} " 
+            {% endif %}>
+            {% if entry.children.length %}
+            <a class="nav-link dropdown-toggle" id="navbarMenuLink" 
+                role="button"  data-bs-toggle="dropdown" aria-expanded="false">
+                dropdown
+            {% else %} 
+            <a class="nav-link" href="{{ entry.url | url }}">
+                {{ entry.title }}
+            {% endif %}
+            </a>
+
+                
+            <!-- deal with children -->
+            {% if entry.children.length %}
+            <ul class="dropdown-menu" aria-labelledby="navbarMenuLink">
+                <li>
+                <a class="dropdown-item" href="{{ entry.url | url }}">
+                    {{ entry.title }}
+                </a>
+                </li>
+                {% for child in entry.children %}
+                <li >
+                    <a class="dropdown-item" href="{{ child.url | url }}">
+                    {{ child.title }}
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+            {% endif %} 
+
+        </li>
+        {% endfor %}
+    </ul>
+    </div>
+</div>
+</nav>
+
+<br>
+
+

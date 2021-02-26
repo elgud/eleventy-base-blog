@@ -41,14 +41,40 @@
             <!-- nav gives a horizontal menu when click the button
                 navbar-nav gives you a vertical menu -->
             <ul class="nav fs-4 ms-5">
-              {%- for entry in collections.all | eleventyNavigation %}
-                <li class="nav-item 
+              {% for entry in collections.all | eleventyNavigation %}
+                <li class="nav-item dropdown
                   {% if entry.url == page.url %} active fw-bold text-decoration-underline" aria-current="page" 
                     {% else %} " 
                   {% endif %}>
+                  {% if entry.children.length %}
+                    <a class="nav-link dropdown-toggle" id="navbarMenuLink" 
+                        role="button"  data-bs-toggle="dropdown" aria-expanded="false">
+                        dropdown
+                  {% else %} 
                     <a class="nav-link" href="{{ entry.url | url }}">
                       {{ entry.title }}
-                    </a>
+                  {% endif %}
+                  </a>
+
+                      
+                  <!-- deal with children -->
+                  {% if entry.children.length %}
+                    <ul class="dropdown-menu" aria-labelledby="navbarMenuLink">
+                      <li>
+                        <a class="dropdown-item" href="{{ entry.url | url }}">
+                          {{ entry.title }}
+                        </a>
+                      </li>
+                      {% for child in entry.children %}
+                        <li >
+                          <a class="dropdown-item" href="{{ child.url | url }}">
+                            {{ child.title }}
+                          </a>
+                        </li>
+                      {% endfor %}
+                    </ul>
+                  {% endif %} 
+
                 </li>
               {%- endfor %}
             </ul>
@@ -75,23 +101,7 @@
 
     <!-- Current page: {{ page.url | url }} -->
 
-    <script src="{{ '/css/bootstrap/js/bootstrap.min.js' | url }}"></script>
+    <script src="{{ '/css/bootstrap/js/bootstrap.bundle.min.js' | url }}"></script>
   </body>
 </html>
 
- <!-- simple nav bar with no collapse
-        <nav class="ms-5" role="navigation">
-          {#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
-          <ul class="nav fs-4 ">
-            {%- for entry in collections.all | eleventyNavigation %}
-              <li class="nav-item 
-                {% if entry.url == page.url %} active fw-bold text-decoration-underline" aria-current="page" 
-                  {% else %} " 
-                {% endif %}>
-                  <a class="nav-link" href="{{ entry.url | url }}">
-                    {{ entry.title }}
-                  </a>
-              </li>
-            {%- endfor %}
-          </ul>
-        </nav> -->
