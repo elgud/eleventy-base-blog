@@ -15,42 +15,47 @@ var publicKey = our_data.servers['servername.com'].publicKey.join('\n');
 
 <p>Open the console to view the results</p>
 
-<h2> Task 1: function to output a message </h2>
+{{ jsfunctions.length }}
+<pre>{{ jsfunctions | dump(2) | safe}}</pre>
 
-<div class="container">
-    <div class="row">
-        <div class="col">
-            <div class="Codeblock text-center bg-primary">
-                 <h3> Code </h3>
-                 <pre class="text-left">
-    // function from task 1
-    function outputMessage(){
-        console.log("This is a message");
-    }
-                </pre>
+{% for entry in jsfunctions %}
+    <h2> {{entry.taskname }} </h2>
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="bg-primary">
+                    <h3 class="text-center"> Code </h3>
+                    <pre>
+                        {{ entry.code }}
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="bg-warning">
+                    <h3 class="text-center"> Test code</h3>
+                    <pre>
+                        {{ entry.testcode}}
+                    </pre>
+                </div>
+            </div>
+            <div class="col">
+                <div class="bg-success">
+                    <h3 class="text-center"> Results </h3>
+                    <pre>
+                        {{ entry.results }}              
+                    </pre>
+                </div>
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col">
-            <div class="Testblock bg-warning">
-                <h3 class="text-center"> Test code</h3>
-                <pre>
-    // calls the outputMessageFunction
-    outputMessage();
-                </pre>
-            </div>
-        </div>
-        <div class="col">
-            <div class="Resultsblock bg-success">
-                <h3 class="text-center"> Results </h3>
-                <pre>
-    This is a message                
-                </pre>
-            </div>
-        </div>
-    </div>
-</div>
+
+    <br><br> <!-- separate tasks -->
+{% endfor %}
+
+
 
 <script>
     // function from task 1
