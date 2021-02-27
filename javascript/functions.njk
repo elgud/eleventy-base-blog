@@ -7,47 +7,49 @@ eleventyNavigation:
   parent: Javascript
   order: 2
 ---
-<!--code to join json string array back together:
-var publicKey = our_data.servers['servername.com'].publicKey.join('\n');
--->
 
 <h1>Basic Javascript Function Tasks</h1>
 
 <p>Open the console to view the results</p>
-
+{# comment 
+<!-- test code to check json file
 {{ jsfunctions.length }}
 <pre>{{ jsfunctions | dump(2) | safe}}</pre>
+-->
+ #}
 
 {% for entry in jsfunctions %}
     <h2> {{entry.taskname }} </h2>
 
-    <div class="container">
+    <div class="container p-0 bg-light">
         <div class="row">
             <div class="col">
-                <div class="bg-primary">
-                    <h3 class="text-center"> Code </h3>
-                    <pre>
-                        {{ entry.code }}
+                <div>
+                    <h3 class="text-center bg-primary py-2 mb-0"> Code </h3>
+                    <pre class="m-0 bg-light">
+{{ entry.code | newlineConcat}}
                     </pre>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col">
-                <div class="bg-warning">
-                    <h3 class="text-center"> Test code</h3>
-                    <pre>
-                        {{ entry.testcode}}
-                    </pre>
-                </div>
+            <div class="col pe-0">
+                <h3 class="text-center bg-warning py-2 mb-0"> Test code</h3>
             </div>
-            <div class="col">
-                <div class="bg-success">
-                    <h3 class="text-center"> Results </h3>
-                    <pre>
-                        {{ entry.results }}              
-                    </pre>
-                </div>
+            <div class="col ps-0">    
+                <h3 class="text-center bg-success py-2 mb-0"> Results </h3>     
+            </div>
+        </div>
+        <div class="row">
+            <div class="col pe-0 border-end border-info">
+                <pre class="m-0 bg-light">
+{{ entry.testcode | newlineConcat }}
+                </pre>
+            </div>
+            <div class="col ps-0 border-start border-info">
+                <pre class="m-0 bg-light">
+{{ entry.results | newlineConcat }}              
+                </pre>
             </div>
         </div>
     </div>

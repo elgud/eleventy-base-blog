@@ -2,13 +2,11 @@
   {
     "taskname": "Task1: Function to output a message",
     "code": [
-        "// function from task 1",
         "function outputMessage(){",
         "   console.log(\"This is a message\");",
         "}"
       ],
     "testcode": [
-        "// calls the outputMessageFunction",
         "outputMessage();"
       ],
     "results": [
@@ -18,14 +16,12 @@
   {
     "taskname": "Task2: Function to create full name from first and last names",
     "code": [
-        "// function from task 2",
         "function createName(firstname, lastname) {",
         "    fullName = firstname + ' ' + lastname;",
         "    console.log(fullName);",
         "}"
       ],
     "testcode": [
-        "// calls the createName function",
         "createName('Jim','Stott');",
         "var fname = 'Jane';",
         "var lname = 'Leaver'",
