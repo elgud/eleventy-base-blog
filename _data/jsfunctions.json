@@ -1,6 +1,7 @@
 [
   {
     "taskname": "Task1: Function to output a message",
+    "label": "functiontask1",
     "code": [
         "function outputMessage(){",
         "   console.log(\"This is a message\");",
@@ -15,6 +16,7 @@
   },
   {
     "taskname": "Task2: Function to create full name from first and last names",
+    "label": "functiontask2",
     "code": [
         "function createName(firstname, lastname) {",
         "    fullName = firstname + ' ' + lastname;",

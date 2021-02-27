@@ -10,7 +10,8 @@ eleventyNavigation:
 
 <h1>Basic Javascript Function Tasks</h1>
 
-<p>Open the console to view the results</p>
+<p>Open the console to view the results or check out the accordion items below.</p>
+<br>
 {# comment 
 <!-- test code to check json file
 {{ jsfunctions.length }}
@@ -19,45 +20,69 @@ eleventyNavigation:
  #}
 
 {% for entry in jsfunctions %}
-    <h2> {{entry.taskname }} </h2>
-
-    <div class="container p-0 bg-light">
-        <div class="row">
-            <div class="col">
-                <div>
-                    <h3 class="text-center bg-primary py-2 mb-0"> Code </h3>
-                    <pre class="m-0 bg-light">
+    <div class="accordion-item" id="heading{{ entry.label }}">
+        <h2 class="accordion-header"> 
+            <button class="accordion-button collapsed fs-2" type="button" data-bs-toggle="collapse" 
+                data-bs-target="#{{ entry.label }}" aria-expanded="false" 
+                aria-controls="{{ entry.label }}">
+                {{entry.taskname }} 
+            </button>
+        </h2>
+        <div id="{{ entry.label }}" class="accordion-collapse collapse" 
+            aria-labelledby="heading{{ entry.label }}" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+                <div class="container p-0 bg-light">
+                    <div class="row">
+                        <div class="col">
+                            <div>
+                                <h3 class="text-center bg-primary py-2 mb-0"> Code </h3>
+                                <pre class="m-0 bg-light">
 {{ entry.code | newlineConcat}}
-                    </pre>
+                                </pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col pe-0">
+                            <h3 class="text-center bg-warning py-2 mb-0"> Test code</h3>
+                        </div>
+                        <div class="col ps-0">    
+                            <h3 class="text-center bg-success py-2 mb-0"> Results </h3>     
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col pe-0 border-end border-info">
+                            <pre class="m-0 bg-light">
+{{ entry.testcode | newlineConcat }}
+                            </pre>
+                        </div>
+                        <div class="col ps-0 border-start border-info">
+                            <pre class="m-0 bg-light">
+{{ entry.results | newlineConcat }}              
+                            </pre>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col pe-0">
-                <h3 class="text-center bg-warning py-2 mb-0"> Test code</h3>
-            </div>
-            <div class="col ps-0">    
-                <h3 class="text-center bg-success py-2 mb-0"> Results </h3>     
-            </div>
-        </div>
-        <div class="row">
-            <div class="col pe-0 border-end border-info">
-                <pre class="m-0 bg-light">
-{{ entry.testcode | newlineConcat }}
-                </pre>
-            </div>
-            <div class="col ps-0 border-start border-info">
-                <pre class="m-0 bg-light">
-{{ entry.results | newlineConcat }}              
-                </pre>
-            </div>
-        </div>
     </div>
-
-    <br><br> <!-- separate tasks -->
 {% endfor %}
 
-
+<!-- bootstrap accordion code from bootstrap website 
+<div class="accordion-item">
+    <h2 class="accordion-header" id="headingThree">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+        Accordion Item #3
+      </button>
+    </h2>
+    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+      </div>
+    </div>
+  </div>
+</div>
+-->
 
 <script>
     // function from task 1
