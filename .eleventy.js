@@ -37,6 +37,13 @@ module.exports = function(eleventyConfig) {
     return Math.min.apply(null, numbers);
   });
 
+  /* 
+    Filter to join an array (of strings) together with '\n' instead of the default ','
+  */
+  eleventyConfig.addFilter("newlineConcat", (array) => {
+    return array.join('\n');
+  });
+
   eleventyConfig.addCollection("tagList", function(collection) {
     let tagSet = new Set();
     collection.getAll().forEach(function(item) {
