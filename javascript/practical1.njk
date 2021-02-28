@@ -10,7 +10,35 @@ eleventyNavigation:
 
 <h1> Tasks for practical 1</h1>
 
-<p>Open console to see results</p>
+<p>Open console to see results or check out the accordion items below.</p>
+
+{% set jscodelist = jspractical1 %}
+{% include "jscodetestresults.njk" %}
+
+<br><hr><br>
+<h2> Some extra maths functions </h2>
+{% for entry in mymaths %}
+    <div class="accordion-item" id="heading{{ entry.label }}">
+        <h3 class="accordion-header"> 
+            <button class="accordion-button collapsed fs-3" type="button" data-bs-toggle="collapse" 
+                data-bs-target="#{{ entry.label }}" aria-expanded="false" 
+                aria-controls="{{ entry.label }}">
+                {{entry.functionname }} 
+            </button>
+        </h3>
+        <div id="{{ entry.label }}" class="accordion-collapse collapse" 
+            aria-labelledby="heading{{ entry.label }}" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+                <div class="container p-0 bg-light">
+                    <pre class="m-0 bg-light">
+{{ entry.code | join('\n') }}
+                    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endfor %}
+
 
 <script>
     function percentage(number, percentage){
@@ -102,6 +130,7 @@ eleventyNavigation:
         return strMessage + '\n\n';
     }
 
+    /* The number of ball needed to make an equalateral triange of balls of side number */
     function triangle(number){
         // check the argument
         if (isNaN(number))
