@@ -43,19 +43,14 @@ arrBooks= [
         booksToRead  (list)
 
     FUNCTION have-I-read({book})
-    LOOP through each book in {booksRead}
-        IF (title of current book is the same as {book} title) AND (author of current book is the same as author of {book})
-            THEN OUTPUT You have read {book}
-<<<<<<< Updated upstream
-                SET found to true
-                STOP Looping
-    IF NOT found
-=======
-                SET {found} to true
-                STOP Looping
-    IF NOT {found}
->>>>>>> Stashed changes
-        OUTPUT You have not read {title} by {author}, do you want me to add the book to {BooksToRead}?
+        SET {found} to false
+        LOOP through each book in {booksRead}
+            IF (title of current book is the same as {book} title) AND (author of current book is the same as author of {book})
+                THEN OUTPUT You have read {book}
+                    SET {found} to true
+                    STOP Looping
+        IF NOT {found}
+            OUTPUT You have not read {title} by {author}, do you want me to add the book to {BooksToRead}?
             
 </pre>
 
