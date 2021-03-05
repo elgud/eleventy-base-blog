@@ -52,11 +52,11 @@
                             {% if entry.url == page.url %} active fw-bold text-decoration-underline" aria-current="page" 
                             {% else %} " 
                             {% endif %}>
-                                <a class="nav-link" href="{{ entry.url | url }}">
+                                <a class="nav-link pe-0" href="{{ entry.url | url }}">
                                     {{ entry.title }}
                                 </a>
 
-                                <div class="nav-link dropdown-toggle" id="navbarMenuLink" 
+                                <div class="nav-link dropdown-toggle ps-1" id="navbarMenuLink" 
                                     role="button"  data-bs-toggle="dropdown" 
                                     aria-expanded="false" href="#">  
                                 </div>
@@ -65,8 +65,11 @@
                         <!-- deal with children for both types of dropdown menu item -->
                         <ul class="dropdown-menu" aria-labelledby="navbarMenuLink">
                             {% for child in entry.children %}
-                            <li >
-                                <a class="dropdown-item" href="{{ child.url | url }}">
+                            <li {% if child.url == page.url %} class="active text-decoration-underline" 
+                                            aria-current="page" 
+                                {% endif %}>
+                                <a class="dropdown-item {% if child.url == page.url %} fw-bold {% endif %}" 
+                                                href="{{ child.url | url }}">
                                 {{ child.title }}
                                 </a>
                             </li>

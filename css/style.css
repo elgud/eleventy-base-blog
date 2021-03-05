@@ -27,6 +27,9 @@ a:visited {
 .nav-link:hover {
   text-decoration: underline;
 }
+.dropdown-item:hover {
+  text-decoration: underline;
+}
 
 a.cd-main-hover:hover {
   background-color: rgba(13,202,240,0.2);
