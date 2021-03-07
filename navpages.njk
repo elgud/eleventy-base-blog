@@ -92,8 +92,8 @@ This is an example from Alex to illustrate how nav bars with hover work.
 <br>
 
 
-<h2>Breadcrumbs test (using the "about-test" page (child of About))
-{% set bread = collections.all | eleventyNavigationBreadcrumb("about-test") %}
+<h2>Breadcrumbs test (using the "Functions" page (child of Javascript))
+{% set bread = collections.all | eleventyNavigationBreadcrumb("Functions") %}
 <pre>{{ bread | dump(2) | safe }}</pre>
 
 {{ bread | eleventyNavigationToHtml | safe}}
