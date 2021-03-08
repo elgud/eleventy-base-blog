@@ -37,6 +37,12 @@ a:visited {
   background-color: rgba(13,202,240,0.2);
 }
 
+a.cd-main-hover {
+  border-color: #aaa;
+  border-width: 1px;
+  border-style: solid;
+}
+
 a.cd-main-hover:hover {
   background-color: rgba(13,202,240,0.2);
   border-color: #0d6efd;
