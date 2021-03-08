@@ -12,6 +12,9 @@ eleventyNavigation:
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- import bootstrap for the menu - this is not part of the challenge -->
+    <link rel="stylesheet" type="text/css" href="{{ '/css/bootstrap/css/bootstrap.min.css' | url }}"/>
     
     <!-- import the webpage's stylesheet -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rock+Salt">
@@ -19,6 +22,10 @@ eleventyNavigation:
 
   </head>  
   <body>
+    <header>
+      {% include "navbar.njk" %}
+      <br><hr><br>
+    </header>
   <article>
     
     <h1>Uk Punk Bands</h1>
@@ -107,5 +114,7 @@ eleventyNavigation:
 
   </article>
 
+  <!-- add bootstrap js. This is not part of the challenge. It is needed for the navbar -->
+   <script src="{{ '/css/bootstrap/js/bootstrap.min.js' | url }}"></script>
   </body>
 </html>
