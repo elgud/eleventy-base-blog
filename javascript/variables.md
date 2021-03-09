@@ -1,5 +1,5 @@
 ---
-layout: layouts/home.njk
+layout: layouts/childpage.njk
 title: Javascript Variables
 templateClass: tmpl-home
 eleventyNavigation:

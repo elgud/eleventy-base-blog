@@ -1,5 +1,5 @@
 ---
-layout: layouts/home.njk
+layout: layouts/childpage.njk
 title: Pseudocode
 templateClass: tmpl-home
 eleventyNavigation:
