@@ -1,0 +1,72 @@
+---
+layout: layouts/childpage.njk
+title: Loops Arrays Objects
+templateClass: tmpl-home
+eleventyNavigation:
+  key: loopsarraysobjects
+  parent: Javascript
+  order: 5
+---
+
+<h1>Loops, Arrays and Objects</h1>
+
+<script>
+    console.log('----------------------task 1: times tables -----------')
+    for (i=1 ; i<=12 ; i++){
+        for (var j=1; j<=12 ; j++){
+            console.log(`${j} x ${i} = ${i*j}`);
+        }
+    }
+
+    console.log('----------------------task 2: arrays ---------------------')
+    var favouriteFoods = ['apple', 'carrot', 'fresh peas', 'salmon', 'leeks'];
+    console.log(favouriteFoods[0]);
+    console.log(favouriteFoods[2]);
+    console.log(favouriteFoods[4]);
+
+    console.log('----------------------task 3: arrays ---------------------')
+    for (var i=0 ; i<favouriteFoods.length ; i++){
+        console.log(favouriteFoods[i]);
+    }
+
+    console.log('----------------------task 4: Objects ---------------------')
+    let myRecipe = {
+        title: 'Chicken noodles',
+        servings: 2,
+        ingredients: ['chicken','onions','noodles','tomatoes'],
+        directions: ['Fry the chicken','Add the onions, tomatoes and noodles'],
+        letsCook: function() {
+            document.write('I am hungry!! Lets cook ' + this.title + '<br>');
+        }
+    }
+
+    document.write(myRecipe.title + '<br>');
+    document.write(`serves ${myRecipe.servings} <br>`);
+    document.write(myRecipe.ingredients.join(', ') + '<br>');
+    document.write(myRecipe.directions.join('. ')+'. <br>');
+
+    for (i=0 ; i<myRecipe.ingredients.length ; i++){
+        document.write(`- ${myRecipe.ingredients[i]}<br>`);
+    }
+    for (i=0 ; i<myRecipe.directions.length ; i++){
+        document.write(`- ${myRecipe.directions[i]}<br>`);
+    }
+
+    myRecipe.letsCook();
+
+    // objects can also hold functions
+    var alexa = {
+        age: 34,
+        hairColour: 'black',
+        talk: function() {
+            console.log('I am listening');
+        },
+        eat: function(food) {
+            console.log(`Yum, I love ${food}`);
+        }
+    };
+
+    alexa.talk();
+    alexa.eat('pizza');
+
+</script>
