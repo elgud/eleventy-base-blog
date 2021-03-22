@@ -34,9 +34,13 @@ eleventyNavigation:
 {{ entry.code | join('\n') }}
                     </pre>
                 </div>
-                 <p>Enter a number</p>
-                <input type="number" oninput="document.getElementById('{{entry.label}}demo').innerHTML = {{ entry.label }}(parseInt(this.value))">
-                <p id="{{entry.label}}demo"></p>
+                <p>Enter a number</p>
+                <div class="d-flex p-1">
+                    <p>{{entry.label}} ( </p>
+                    <input type="number" oninput="document.getElementById('{{entry.label}}demo').innerHTML = {{ entry.label }}(parseInt(this.value))">
+                    <p> ) = </p>
+                    <p id="{{entry.label}}demo"> </p>
+                </div>
             </div>
         </div>
     </div>
