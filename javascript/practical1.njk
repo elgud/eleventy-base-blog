@@ -35,10 +35,10 @@ eleventyNavigation:
                     </pre>
                 </div>
                 <br>
-                <p><strong>Demo for {{entry.label}}: enter a whole number</strong></p>
+                <p><strong>Demo for {{entry.label}}: enter a positive whole number</strong></p>
                 <div class="d-inline-flex align-items-center p-3">
                     <div>{{entry.label}} ( </div>
-                    <input class="form-control-sm" type="number" 
+                    <input class="form-control-sm" type="number" min="1" step="1"
                         oninput="document.getElementById('{{entry.label}}demo').innerHTML = {{ entry.label }}(parseInt(this.value))">
                     <div class="pe-2"> ) = </div>
                     <div id="{{entry.label}}demo"> </div>
