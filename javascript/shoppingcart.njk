@@ -173,17 +173,18 @@ function median(numberlist){
     return sortedList[Math.floor(index)];
 }
 
-function classMedian(numbers3) {
+function classMedian(numbers) {
   let median = 0;
   let numbersLength = numbers.length;
-  let sortedNumbers = numbers.sort();
+  numbers.sort((a,b) => a-b);
+  console.log(numbers);
   // even number of items in the number arrays
   if (numbersLength % 2 === 0){
-    median = (numbers[numbersLength / 2]) + (numbers[numbersLength / 2 -1]) / 2;
+    median = (numbers[numbersLength / 2] + numbers[numbersLength / 2 - 1]) / 2;
   }
   // odd number of items.
   else {
-    median = numbers[(numberslength - 1)/2];
+    median = numbers[(numbersLength - 1)/2];
   }
   return median;
 }
@@ -191,6 +192,35 @@ function classMedian(numbers3) {
 function mode(numberlist) {
   numberlist.sort();
 }
+
+// Mode solution produced after class
+// As result can be bimodal or multi-modal,
+// the returned result is provided as an array
+// mode of [3, 5, 4, 4, 1, 1, 2, 3] = [1, 3, 4].
+myModeNumbers = [3, 5, 4, 4, 1, 1, 2, 3];
+function mode(numbers) {
+    let modes = [];
+    let count = [];
+    let number = 0;
+    let maxIndex = 0;
+    for (let i = 0; i < numbers.length; i++) {
+        number = numbers[i];
+        count[number] = (count[number] || 0) + 1;
+        if (count[number] > maxIndex) {
+            maxIndex = count[number];
+        }
+    }
+    // For - in statement.
+    // Push the number(s) with the highest appearance frequency
+    // into modes array.
+    for (let i in count) {
+        if (count[i] === maxIndex) {
+            modes.push(Number(i));
+        }
+    }
+    return modes;
+}
+console.log(mode(myModeNumbers));
 
 // testing
 console.log('---------------------- Shopping Cart -----------')
@@ -217,5 +247,10 @@ console.log('The median of numbers1 is '+ median(numbers1).toFixed(3));
 console.log('The median of numbers2 is '+ median(numbers2).toFixed(3));
 console.log('The median of numbers3 is '+ median(numbers3).toFixed(3));
 console.log('The median of mynumbers is '+ median(mynumbers).toFixed(3));
+
+console.log('The median of numbers1 is '+ classMedian(numbers1).toFixed(3));
+console.log('The median of numbers2 is '+ classMedian(numbers2).toFixed(3));
+console.log('The median of numbers3 is '+ classMedian(numbers3).toFixed(3));
+console.log('The median of mynumbers is '+ classMedian(mynumbers).toFixed(3));
 
 </script>
