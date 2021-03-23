@@ -46,7 +46,7 @@ function cartPrice(cart) {
 
 function mean(numberlist){
   var sum = 0;
-  for (i=0 ; i<numberlist.length ; i++) 
+  for (i=0 ; i<numberlist.length; i++) 
     sum += numberlist[i];
   
   return sum/numberlist.length;
@@ -54,6 +54,11 @@ function mean(numberlist){
 
 function median(numberlist){
   var sortedlist = numberlist.sort();
+  var index = numberlist.length / 2;
+  if (Number.isInteger(index))
+    return (numberlist[index] + numberlist[index-1])/2;
+  else
+    return numberlist[Math.floor(index)];
 }
 
 // testing
@@ -68,5 +73,9 @@ console.log('----------------------task 4: averages -----------')
 console.log('The mean of numbers1 is '+ mean(numbers1).toFixed(3));
 console.log('The mean of numbers2 is '+ mean(numbers2).toFixed(3));
 console.log('The mean of numbers3 is '+ mean(numbers3).toFixed(3));
+console.log('\n');
+console.log('The median of numbers1 is '+ median(numbers1).toFixed(3));
+console.log('The median of numbers2 is '+ median(numbers2).toFixed(3));
+console.log('The median of numbers3 is '+ median(numbers3).toFixed(3));
 
 </script>
