@@ -15,27 +15,92 @@ eleventyNavigation:
 <script>
 // data
 var cart1 = [
-  {name: 'apples', price: 1.20, quantity: 1},
-  {name: 'oranges', price: 1.05, quantity: 2},
-  {name: 'pens', price: 0.5, quantity: 3},
-  {name: 'A5 notebook', price: 1.50, quantity: 2}
+  {name: 'apples', price: 1.20, quantity: 1, type: "food"},
+  {name: 'oranges', price: 1.05, quantity: 2, type: "food"},
+  {name: 'pens', price: 0.5, quantity: 3, type: "stationary"},
+  {name: 'A5 notebook', price: 1.50, quantity: 2, type: "stationary"}
 ]
 
 var cart2 = [
-  {name: 'pears', price: 1.00, quantity: 2},
-  {name: 'salmon', price: 2.65, quantity: 1},
-  {name: 'thumb drive', price: 21.95, quantity: 1},
-  {name: 'bucket', price: 1.50, quantity: 2},
-  {name: 'easter egg', price: 2.45, quantity: 3}
+  {name: 'pears', price: 1.00, quantity: 2, type: "food"},
+  {name: 'salmon', price: 2.65, quantity: 1, type: "food"},
+  {name: 'thumb drive', price: 21.95, quantity: 1, type: "computing"},
+  {name: 'bucket', price: 1.50, quantity: 2, type: "home"},
+  {name: 'easter egg', price: 2.45, quantity: 3, type: "food"}
 ]
+
+let shoppingCart = [
+    {
+        name:"loaf of bread",
+        type:"food",
+        quantity:1,
+        price:.85
+    },
+    {
+        name:"multipack beans",
+        type:"food",
+        quantity:2,
+        price:1
+    },
+    {
+        name:"mushrooms",
+        type:"food",
+        quantity:10,
+        price:.1
+    },
+    {
+        name:"can of beer",
+        type:"alcohol",
+        quantity:4,
+        price:1.1
+    },
+    {
+        name:"prosecco",
+        type:"alcohol",
+        quantity:1,
+        price:8.99
+    },
+    {
+        name:"steak",
+        type:"food",
+        quantity:2,
+        price:3.99
+    },
+    {
+        name:"blue cheese",
+        type:"food",
+        quantity:1,
+        price:2.99
+    },
+    {
+        name:"candles",
+        type:"home",
+        quantity:3,
+        price:1.99
+    },
+    {
+        name:"cheesecake",
+        type:"food",
+        quantity:1,
+        price:4.99
+    },
+    {
+        name:"onions",
+        type:"food",
+        quantity:3,
+        price:.4
+    },
+];
 
 var numbers1 = [1,2,3,4,5,6,7,8,9];
 var numbers2 = [1,2,3,2,3,2,5,6,6,4,3,1,5,4,3];
 var numbers3 = [1,2,3,1,2,3];
 
+var mynumbers = [3,78,5,23,1,9,7,5];
+
 // functions
 function cartPrice(cart) {
-  totalPrice = 0;
+  let totalPrice = 0;
   for (i=0 ; i<cart.length ; i++)
   {
     currentItem = cart[i];
@@ -44,8 +109,54 @@ function cartPrice(cart) {
   return totalPrice;
 }
 
+// pedantic version
+function shoppingTotal(cart) {
+  let totalPrice = 0;
+  for (let i=0 ; i<cart.length ; i++) {
+    let itemPrice = cart[i].price;
+    if (cart[i].type === 'food') {
+      itemPrice = .8 * itemPrice;
+    }
+    let itemQuantity = cart[i].quantity;
+    let itemTotalPrice = itemPrice * itemQuantity;
+    totalPrice = totalPrice + itemTotalPrice;
+  }
+  return totalPrice.toFixed(2);
+}
+
+function shoppingTotalBetter(cart, discountAmount, type) {
+  let totalPrice = 0;
+  for (let i=0 ; i<cart.length ; i++) {
+    let itemPrice = cart[i].price;
+    if (cart[i].type === type) {
+      itemPrice = (100 - discountAmount)/ 100 * itemPrice;
+    }
+    let itemQuantity = cart[i].quantity;
+    let itemTotalPrice = itemPrice * itemQuantity;
+    totalPrice = totalPrice + itemTotalPrice;
+  }
+  return totalPrice.toFixed(2);
+}
+
+function ted(cart,lowPrice, highPrice, quantity){
+  let arrItems = [];
+  for (let i=0 ; i<cart.length; i++){
+    if (quantity === true) {
+      itemPrice = cart[i].price * cart[i].quantity;
+    }
+    else {
+      itemPrice = cart[i].price;
+    }
+
+    if (itemPrice >= lowPrice && itemPrice <= highPrice){
+      arrItems.push(cart[i]);
+    }
+  }
+  return arrItems;
+}
+
 function mean(numberlist){
-  var sum = 0;
+  let sum = 0;
   for (i=0 ; i<numberlist.length; i++) 
     sum += numberlist[i];
   
@@ -53,29 +164,58 @@ function mean(numberlist){
 }
 
 function median(numberlist){
-  var sortedlist = numberlist.sort();
+  var sortedList = numberlist.sort((a,b) => a-b);
+  console.log(sortedList);
   var index = numberlist.length / 2;
   if (Number.isInteger(index))
-    return (numberlist[index] + numberlist[index-1])/2;
+    return (sortedList[index] + sortedList[index-1])/2;
   else
-    return numberlist[Math.floor(index)];
+    return sortedList[Math.floor(index)];
+}
+
+function classMedian(numbers3) {
+  let median = 0;
+  let numbersLength = numbers.length;
+  let sortedNumbers = numbers.sort();
+  // even number of items in the number arrays
+  if (numbersLength % 2 === 0){
+    median = (numbers[numbersLength / 2]) + (numbers[numbersLength / 2 -1]) / 2;
+  }
+  // odd number of items.
+  else {
+    median = numbers[(numberslength - 1)/2];
+  }
+  return median;
+}
+
+function mode(numberlist) {
+  numberlist.sort();
 }
 
 // testing
 console.log('---------------------- Shopping Cart -----------')
-console.log('----------------------task 1: totalPrice -----------')
 console.log('cart1 costs £'+cartPrice(cart1).toFixed(2));
 console.log('cart2 costs £'+cartPrice(cart2).toFixed(2));
 console.log('the combined cart costs £'+cartPrice(cart1.concat(cart2)).toFixed(2));
+console.log('shoppingCart costs £'+cartPrice(shoppingCart).toFixed(2));
+console.log('shoppingCart costs £'+shoppingTotal(shoppingCart));
+console.log('shoppingCart with 20% discount on food costs £'+shoppingTotalBetter(shoppingCart, 20,'food'));
+console.log('shoppingCart with 20% discount on home costs £'+shoppingTotalBetter(shoppingCart, 20,'home'));
+console.log('shoppingCart with 1% discount on alcohol costs £'+shoppingTotalBetter(shoppingCart, 1,'alcohol'));
+console.log('shoppingCart with 10% discount on home costs £'+shoppingTotalBetter(shoppingCart, 10,'food'));
+console.log(ted(shoppingCart,2,5,true));
+console.log(ted(shoppingCart,2,5,false));
 
 
 console.log('----------------------task 4: averages -----------')
 console.log('The mean of numbers1 is '+ mean(numbers1).toFixed(3));
 console.log('The mean of numbers2 is '+ mean(numbers2).toFixed(3));
 console.log('The mean of numbers3 is '+ mean(numbers3).toFixed(3));
+console.log('The mean of mynumbers is '+ mean(mynumbers).toFixed(3));
 console.log('\n');
 console.log('The median of numbers1 is '+ median(numbers1).toFixed(3));
 console.log('The median of numbers2 is '+ median(numbers2).toFixed(3));
 console.log('The median of numbers3 is '+ median(numbers3).toFixed(3));
+console.log('The median of mynumbers is '+ median(mynumbers).toFixed(3));
 
 </script>
