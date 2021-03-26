@@ -1,0 +1,147 @@
+---
+layout: layouts/childpage.njk
+title: DOM
+templateClass: tmpl-home
+eleventyNavigation:
+  key: DOM
+  parent: Javascript
+  order: 7
+---
+
+<div id="task1wrapper">
+    <h1 id=task1-header>Hello from task 1</h1>
+    <img src="http://placekitten.com/g/600/500" />
+    <button onclick="task1()">Click me to run this</button>
+</div>
+
+<div id="task2wrapper">
+  <h1>This is task 2</h1>
+  <button onclick="task2()">Click to add content</button>
+</div>
+
+<div id ="task3wrapper">
+  <h1>This is task 3</h1>
+  <div id="task3-square" style="height: 50px; width: 50px; background: red;">
+</div>
+
+<div id="task4wrapper">
+  <h1>This is task 4</h1>
+  <a id="task4-link" href="https://LeedsWebDev.org">Leeds Web Dev</a>
+</div>
+
+<div id="task5wrapper">
+  <h1>This is task 5</h1>
+  <form action="/la-di-da">
+    <fieldset>
+      <div>
+        <label for="task5-input">Enter a number</label>
+        <input id="task5-input" name="my-number" placeholder="Fill in a number"/>
+        <button id="task5-submit" type="submit">Submit</button>
+      </div>
+      <p id="task5-output">The number multiplied by 5 will go here</p>
+    </fieldset>
+  </form>
+</div>
+<!--
+<div id="task1wrapper">
+  <h1 id="task1-header">Hello from task1</h1>
+  <img src="http://placekitten.com/g/600/500" />
+  <button onclick="task1()">Click me to run this</button>
+</div> 
+
+<div id="task2wrapper">
+  <h1>This is task2</h1>
+  <button onclick="task2()">Click to add content</button>
+</div>-->
+
+<script>
+  function task1() {
+    var image = document.getElementsByTagName('img')[1];
+    image.src = 'http://placekitten.com/g/200/200';
+    var header = document.getElementById('task1-header');
+    header.style.color = 'blue';
+  }
+    
+  /*function task1() {
+    var task1Image = document.getElementsByTagName('img')[0];
+    task1Image.src = "http://placekitten.com/200/200";
+    var task1Header = document.getElementById('task1-header');
+    task1Header.style.color = 'red';
+  } */
+
+  function task2() {
+    var theP = document.createElement('p');
+    //var theSpan = document.createElement('span');
+    var theText = document.createTextNode('There is no danger here');
+
+    theP.appendChild(theText);
+
+    var task2wrapper = document.getElementById('task2wrapper');
+    task2wrapper.appendChild(theP);
+  }
+
+  /*function task2() {
+    var theP = document.createElement('p');
+    var theText = document.createTextNode('Theres no danger here, Will');
+    theP.appendChild(theText);
+    var task2wrapper = document.getElementById('task2wrapper');
+    task2wrapper.appendChild(theP);
+  }*/
+
+  function task3(){
+    var theSquare = document.getElementById('task3-square');
+    theSquare.addEventListener('mouseover',function(){
+      alert('Hey, look at my red square!');
+    });
+  }
+  task3(); // to run task3
+
+  /*
+  function task3() {
+    var theSquare = document.getElementById('task3-square');
+    var myFunction = function() {
+      alert('Hey, look at my red square!'); 
+    };
+    theSquare.addEventListener('mouseover', myFunction);
+  }*/
+
+  function task4() {
+    var theLink = document.getElementById('task4-link');
+    var myInterceptionFunction = function(event) {
+      event.preventDefault();
+      alert('Why leave my site?');
+    }
+
+    theLink.addEventListener('click',myInterceptionFunction);
+  }
+
+  task4();
+
+  function task5(){
+    var theInput = document.getElementById('task5-input');
+    var theButton = document.getElementById('task5-submit');
+    var theOutput = document.getElementById('task5-output');
+
+    var mySubmitFunction = function(dave){
+      dave.preventDefault();
+
+      theOutput.innerHTML = theInput.value + ' * 5 = ' + (5 * theInput.value);
+    }
+
+    theButton.addEventListener('click',mySubmitFunction);
+  }
+
+  task5();
+
+  /*function task5() {
+    var theInput = document.getElementById('task5-input');
+    var theButton = document.getElementById('task5-submit');
+    var theOutput = document.getElementById('task5-output');
+    var mySubmitFunction = function(dave) {
+      dave.preventDefault();
+      theOutput.innerHTML = theInput.value + ' * 5 = ' + (5 * theInput.value);
+    };
+    theButton.addEventListener('click', mySubmitFunction);
+  } */
+
+</script>
