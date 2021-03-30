@@ -1,82 +1,82 @@
 [
     {
         "animal": "tiger",
-        "file": "img/animals/tigerEating.jpg",
+        "filename": "/img/animals/tigerEating.jpg",
         "description": "Tiger eating"
     },
     {
         "animal": "elephant",
-        "file": "img/animals/elephantSleeping.jpg",
+        "filename": "https://images.pexels.com/photos/3691813/pexels-photo-3691813.jpeg?cs=srgb&dl=pexels-katie-hollamby-3691813.jpg&fm=jpg",
         "description": "Elephant sleeping"
     },
     {
         "animal": "panda",
-        "file": "img/animals/pandaInTree.jpg",
+        "filename": "/img/animals/pandaInTree.jpg",
         "description": "Panda in tree"
     },
     {
         "animal": "lion",
-        "file": "img/animals/lionWalking.jpg",
+        "filename": "/img/animals/lionWalking.jpg",
         "description": "Lion walking"
     },
     {
         "animal": "elephant",
-        "file": "img/animals/ElephantWalking.jpg",
-        "description": "ElephantWalking"
+        "filename": "https://images.pexels.com/photos/5646805/pexels-photo-5646805.jpeg?cs=srgb&dl=pexels-roger-brown-5646805.jpg&fm=jpg",
+        "description": "Elephant walking"
     },
     {
         "animal": "panda",
-        "file": "img/animals/pandaPlayingWCub",
+        "filename": "/img/animals/pandaPlayingWCub.jpg",
         "description": "Panda playing with its cub"
     },
     {
         "animal": "tiger",
-        "file": "img/animals/tigerEating.jpg",
+        "filename": "/img/animals/tigerWalking.jpg",
+        "description": "Tiger walking"
+    },
+    {
+        "animal": "lion",
+        "filename": "/img/animals/lionEating.jpg",
+        "description": "Lion eating"
+    },
+    {
+        "animal": "panda",
+        "filename": "/img/animals/pandaWalking.jpg",
         "description": "Tiger eating"
     },
     {
         "animal": "tiger",
-        "file": "img/animals/tigerEating.jpg",
-        "description": "Tiger eating"
+        "filename": "/img/animals/tigerSleeping.jpg",
+        "description": "Tiger sleeping"
+    },
+    {
+        "animal": "elephant",
+        "filename": "https://images.pexels.com/photos/4003462/pexels-photo-4003462.jpeg?cs=srgb&dl=pexels-filip-olsok-4003462.jpg&fm=jpg",
+        "description": "Elephant eating from tree"
     },
     {
         "animal": "tiger",
-        "file": "img/animals/tigerEating.jpg",
-        "description": "Tiger eating"
+        "filename": "/img/animals/tigerWCub.jpg",
+        "description": "Tiger with its cub"
     },
     {
-        "animal": "tiger",
-        "file": "img/animals/tigerEating.jpg",
-        "description": "Tiger eating"
+        "animal": "panda",
+        "filename": "/img/animals/pandaEating.jpg",
+        "description": "Panda eating"
     },
     {
-        "animal": "tiger",
-        "file": "img/animals/tigerEating.jpg",
-        "description": "Tiger eating"
+        "animal": "lion",
+        "filename": "/img/animals/lionPlaying.jpg",
+        "description": "Lion Playing"
     },
     {
-        "animal": "tiger",
-        "file": "img/animals/tigerEating.jpg",
-        "description": "Tiger eating"
+        "animal": "elephant",
+        "filename": "https://images.pexels.com/photos/6057173/pexels-photo-6057173.jpeg?cs=srgb&dl=pexels-antony-trivet-6057173.jpg&fm=jpg",
+        "description": "Elephant with its cub"
     },
     {
-        "animal": "tiger",
-        "file": "img/animals/tigerEating.jpg",
-        "description": "Tiger eating"
-    },
-    {
-        "animal": "tiger",
-        "file": "img/animals/tigerEating.jpg",
-        "description": "Tiger eating"
-    },
-    {
-        "animal": "tiger",
-        "file": "img/animals/tigerEating.jpg",
-        "description": "Tiger eating"
-    },
-    {
-        "animal": "tiger",
-        "file": "img/animals/tigerEating.jpg",
-        "description": "Tiger eating"
+        "animal": "lion",
+        "filename": "/img/animals/lionSleeping.jpg",
+        "description": "Lion sleeping"
     }
 ]

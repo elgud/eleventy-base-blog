@@ -12,16 +12,47 @@ eleventyNavigation:
 
 <form>
     <fieldset class="d-flex">
-        <button class="buttonFilter p-2 m-1 bg-info">Lions</button>
-        <button class="buttonFilter p-2 m-1 bg-info">Tigers</button>
-        <button class="buttonFilter p-2 m-1 bg-info">Elephants</button>
-        <button class="buttonFilter p-2 m-1 bg-info">Pandas</button>
-        <button class="buttonFilter p-2 m-1 bg-info">Show All</button>
-        </button>
+        <button animal="lion" class="buttonFilter  p-2 m-1 bg-info">Lions</button>
+        <button animal="tiger" class="buttonFilter  p-2 m-1 bg-info">Tigers</button>
+        <button animal="elephant" class="buttonFilter  p-2 m-1 bg-info">Elephants</button>
+        <button animal="panda" class="buttonFilter  p-2 m-1 bg-info">Pandas</button>
+        <button animal="all" class="buttonFilter  p-2 m-1 bg-info">Show All</button>
+        <label for="searchText" class="p2 m-2">Search</label>
+        <input class="p-2 m-1 bg-info" type="text" id="searchText" name="searchText" placeholder="Type to search ...">    
+    </button>
     </fieldset>
 </form>
 
-<div class="d-flex">
-    
+<br>
+
+<div class="d-flex flex-wrap">
+    {% for animal in animals %}
+        <div class="container w-25 mb-4 {{ animal.animal }} imageFilter text-center">
+            <div class="ratio ratio-4x3">
+                <img src="{{ animal.filename | url }}" alt="{{ animal.description }}" />
+            </div>
+            {{ animal.description }}
+        </div>
+    {% endfor %}
 </div>
+
+<script>
+    // get an array of buttons - all the buttons
+    const button = document.querySelectorAll(".buttonFilter");
+
+    // get an array of images
+    const images = document.querySelectorAll(".imageFilter");
+
+    // loop through buttons
+    for (i=0 ; i<button.length ; i++) {
+        button[i].addEventListener('click', function() {
+            // get the animal attribute of the button that has been clicked
+            var animal = this.getAttribute("animal");
+            console.log(animal);
+            for (j=0 ; j<images.length ; j++) {
+
+            }
+        });
+    }
+</script>
 
