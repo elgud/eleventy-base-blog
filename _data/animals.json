@@ -42,7 +42,7 @@
     {
         "animal": "panda",
         "filename": "/img/animals/pandaWalking.jpg",
-        "description": "Tiger eating"
+        "description": "Panda walking"
     },
     {
         "animal": "tiger",
@@ -67,7 +67,7 @@
     {
         "animal": "lion",
         "filename": "/img/animals/lionPlaying.jpg",
-        "description": "Lion Playing"
+        "description": "Lion playing"
     },
     {
         "animal": "elephant",
