@@ -1,0 +1,82 @@
+[
+    {
+        "animal": "tiger",
+        "file": "img/animals/tigerEating.jpg",
+        "description": "Tiger eating"
+    },
+    {
+        "animal": "elephant",
+        "file": "img/animals/elephantSleeping.jpg",
+        "description": "Elephant sleeping"
+    },
+    {
+        "animal": "panda",
+        "file": "img/animals/pandaInTree.jpg",
+        "description": "Panda in tree"
+    },
+    {
+        "animal": "lion",
+        "file": "img/animals/lionWalking.jpg",
+        "description": "Lion walking"
+    },
+    {
+        "animal": "elephant",
+        "file": "img/animals/ElephantWalking.jpg",
+        "description": "ElephantWalking"
+    },
+    {
+        "animal": "panda",
+        "file": "img/animals/pandaPlayingWCub",
+        "description": "Panda playing with its cub"
+    },
+    {
+        "animal": "tiger",
+        "file": "img/animals/tigerEating.jpg",
+        "description": "Tiger eating"
+    },
+    {
+        "animal": "tiger",
+        "file": "img/animals/tigerEating.jpg",
+        "description": "Tiger eating"
+    },
+    {
+        "animal": "tiger",
+        "file": "img/animals/tigerEating.jpg",
+        "description": "Tiger eating"
+    },
+    {
+        "animal": "tiger",
+        "file": "img/animals/tigerEating.jpg",
+        "description": "Tiger eating"
+    },
+    {
+        "animal": "tiger",
+        "file": "img/animals/tigerEating.jpg",
+        "description": "Tiger eating"
+    },
+    {
+        "animal": "tiger",
+        "file": "img/animals/tigerEating.jpg",
+        "description": "Tiger eating"
+    },
+    {
+        "animal": "tiger",
+        "file": "img/animals/tigerEating.jpg",
+        "description": "Tiger eating"
+    },
+    {
+        "animal": "tiger",
+        "file": "img/animals/tigerEating.jpg",
+        "description": "Tiger eating"
+    },
+    {
+        "animal": "tiger",
+        "file": "img/animals/tigerEating.jpg",
+        "description": "Tiger eating"
+    },
+    {
+        "animal": "tiger",
+        "file": "img/animals/tigerEating.jpg",
+        "description": "Tiger eating"
+    }
+]
