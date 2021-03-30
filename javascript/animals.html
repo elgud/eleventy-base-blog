@@ -1,0 +1,125 @@
+---
+layout: layouts/childpage.njk
+title: Animals
+templateClass: tmpl-home
+eleventyNavigation:
+  key: animals
+  parent: Javascript
+  order: 8
+---
+
+<h1 class="text-center">Animals</h1>
+
+<div class="d-flex">
+    <button animal="lion" class="buttonFilter  px-2 m-1 bg-info">Lions</button>
+    <button animal="tiger" class="buttonFilter  px-2 m-1 bg-info">Tigers</button>
+    <button animal="elephant" class="buttonFilter  px-2 m-1 bg-info">Elephants</button>
+    <button animal="panda" class="buttonFilter  px-2 m-1 bg-info">Pandas</button>
+    <button animal="all" class="buttonFilter  no-wrap px-2 m-1 bg-info">Show All</button>
+    <div class="d-flex ms-auto">
+        <input class="m-1 form-control" type="search" id="searchText" name="searchText" placeholder="Type to search ..."> 
+        <button id="searchButton" class="px-2 m-1 ms-0 bg-info">Search</button> 
+    </div>  
+</div>
+
+<br>
+<h2 id="showingTitle" class="pb-4">Showing All Images</h2>
+<div class="container">
+    <p class="friendly-message">
+
+    </p>
+</div>
+
+<div class="d-flex flex-wrap">
+    {% for animal in animals %}
+        <div class="container w-25 mb-4 {{ animal.animal }} imageFilter text-center">
+            <div class="ratio ratio-4x3">
+                <img src="{{ animal.filename | url }}" alt="{{ animal.description }}" />
+            </div>
+            <caption>{{ animal.description }}</caption>
+        </div>
+    {% endfor %}
+</div>
+
+<script>
+    // get an array of buttons - all the buttons
+    const button = document.querySelectorAll(".buttonFilter");
+
+    // get an array of images
+    const images = document.querySelectorAll(".imageFilter");
+
+    const showHeader = document.getElementById("showingTitle");
+
+    // loop through buttons
+    for (i=0 ; i<button.length ; i++) {
+        button[i].addEventListener('click', function() {
+            // get the animal attribute of the button that has been clicked
+            var animal = this.getAttribute("animal");
+            // console.log(animal);
+            var count = 0;
+            for (j=0 ; j<images.length ; j++) {
+                // console.log(images[j].classList);
+                if (animal==="all"){
+                    images[j].style.display = "block";
+                }
+                else if (images[j].classList.contains(animal)) {
+                    images[j].style.display = "block"; 
+                    count++;
+                }
+                else {
+                    images[j].style.display = "none";
+                }
+            }
+            if (animal==="all")
+                showHeader.innerHTML = "Showing All Images";
+            else if (count > 0)
+                showHeader.innerHTML = "Showing " + count + " " + animal + " images";
+            else
+                showHeader.innerHTML = "No " + animal + " images found"; 
+        });
+    }
+
+    function searchImages(value) {
+        var count = 0;
+        for (j=0 ; j<images.length ; j++) {
+            var image = images[j].getElementsByTagName("img")[0];
+            var imageAltText = image.getAttribute("alt").toLowerCase();
+            //console.log(images[j])
+            //console.log("Image alt text is " + imageAltText);
+            if (value !="" && imageAltText != null 
+                                && imageAltText.includes(value.toLowerCase())) {
+                    images[j].style.display = "block";
+                    count ++;
+            }
+            else 
+                images[j].style.display = "none";
+        }
+
+        if (count > 0)
+            showHeader.innerHTML = "Showing " + count + " images with " + value + " in the caption";
+        else
+            showHeader.innerHTML = "No images with " + value + " in the caption found"; 
+
+    }
+
+    // get the search input
+    const textSearch = document.getElementById("searchText");
+    const buttonSearch = document.getElementById("searchButton");
+
+    // get the search button
+
+    textSearch.addEventListener('keypress', function(event){
+        if (event.key === 'Enter') {
+            typedValue = textSearch.value;
+            console.log("you have typed " + typedValue)
+            searchImages(typedValue);
+        }
+    });
+
+    buttonSearch.addEventListener('click', function(){
+        searchImages(textSearch.value);
+    });
+
+    
+</script>
+
