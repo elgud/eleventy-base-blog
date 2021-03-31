@@ -10,7 +10,7 @@ eleventyNavigation:
 
 <h1 class="text-center">Animals</h1>
 
-<div class="d-flex">
+<div class="d-flex flex-wrap">
     <button animal="lion" class="buttonFilter  px-2 m-1 bg-info">Lions</button>
     <button animal="tiger" class="buttonFilter  px-2 m-1 bg-info">Tigers</button>
     <button animal="elephant" class="buttonFilter  px-2 m-1 bg-info">Elephants</button>
@@ -32,7 +32,7 @@ eleventyNavigation:
 
 <div class="row">
     {% for animal in animals %}
-        <div class="col-6 col-md-3 col-xl-2 mb-4 {{ animal.animal }} imageFilter text-center">
+        <div class="col-6 col-md-3 col-xxl-2 mb-4 {{ animal.animal }} imageFilter text-center">
             <div class="ratio ratio-4x3">
                 <img src="{{ animal.filename | url }}" alt="{{ animal.description }}" />
             </div>
