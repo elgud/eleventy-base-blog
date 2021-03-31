@@ -10,11 +10,29 @@ eleventyNavigation:
 
 <h1 class="text-center">Animals</h1>
 
-<div class="d-flex">
-    <button animal="lion" class="buttonFilter  px-2 m-1 bg-info">Lions</button>
-    <button animal="tiger" class="buttonFilter  px-2 m-1 bg-info">Tigers</button>
-    <button animal="elephant" class="buttonFilter  px-2 m-1 bg-info">Elephants</button>
-    <button animal="panda" class="buttonFilter  px-2 m-1 bg-info">Pandas</button>
+<!-- create a list of animals in the animals data -->
+{% set animalList = [] %}
+{% for animal in animals %}
+    {% set found = 0 %}
+    {% for item in animalList %}
+        {% if item === animal.animal | lower %}
+            {% set found = 1 %}
+        {% endif %}
+    {% endfor %}
+
+    {% if not found %}
+        {% set animalList = (animalList.push(animal.animal), animalList) %}
+    {% endif %}  
+{% endfor %}
+
+<!--
+<pre> {{ animalList | dump(2) | safe }} </pre>
+-->
+
+<div class="d-flex flex-wrap">
+    {% for item in animalList %}
+        <button animal="{{item}}" class="buttonFilter  px-2 m-1 bg-info">{{ item | capitalize }}</button>
+    {% endfor %}
     <button animal="all" class="buttonFilter  no-wrap px-2 m-1 bg-info">Show All</button>
     <div class="d-flex ms-auto">
         <input class="m-1 form-control" type="search" id="searchText" name="searchText" placeholder="Type to search ..."> 
@@ -30,9 +48,9 @@ eleventyNavigation:
     </p>
 </div>
 
-<div class="d-flex flex-wrap">
+<div class="row">
     {% for animal in animals %}
-        <div class="container w-25 mb-4 {{ animal.animal }} imageFilter text-center">
+        <div class="col-6 col-md-3 col-xxl-2 mb-4 {{ animal.animal }} imageFilter text-center">
             <div class="ratio ratio-4x3">
                 <img src="{{ animal.filename | url }}" alt="{{ animal.description }}" />
             </div>
