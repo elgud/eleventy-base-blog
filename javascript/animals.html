@@ -30,9 +30,9 @@ eleventyNavigation:
     </p>
 </div>
 
-<div class="d-flex flex-wrap">
+<div class="row">
     {% for animal in animals %}
-        <div class="container w-25 mb-4 {{ animal.animal }} imageFilter text-center">
+        <div class="col-6 col-md-3 col-xl-2 mb-4 {{ animal.animal }} imageFilter text-center">
             <div class="ratio ratio-4x3">
                 <img src="{{ animal.filename | url }}" alt="{{ animal.description }}" />
             </div>
