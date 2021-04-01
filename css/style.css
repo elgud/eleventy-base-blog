@@ -55,6 +55,12 @@ a.cd-main-hover:hover {
   border-color: var(--navy);
 }
 
+.active-btn {
+  color: var(--navy);
+  background-color: white;
+  border-color: #0d6efd;
+}
+
 /* Tags */
 a.post-tag {
   display: inline-block;

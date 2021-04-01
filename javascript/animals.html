@@ -31,12 +31,12 @@ eleventyNavigation:
 
 <div class="d-flex flex-wrap">
     {% for item in animalList %}
-        <button animal="{{item}}" class="buttonFilter  px-2 m-1 bg-info">{{ item | capitalize }}</button>
+        <button animal="{{item}}" class="buttonFilter px-2 m-1">{{ item | capitalize }}</button>
     {% endfor %}
-    <button animal="all" class="buttonFilter  no-wrap px-2 m-1 bg-info">Show All</button>
+    <button animal="all" class="buttonFilter active-btn no-wrap px-2 m-1">Show All</button>
     <div class="d-flex ms-auto">
         <input class="m-1 form-control" type="search" id="searchText" name="searchText" placeholder="Type to search ..."> 
-        <button id="searchButton" class="px-2 m-1 ms-0 bg-info">Search</button> 
+        <button id="searchButton" class="px-2 m-1 ms-0">Search</button> 
     </div>  
 </div>
 
@@ -94,6 +94,15 @@ eleventyNavigation:
                 showHeader.innerHTML = "Showing " + count + " " + animal + " images";
             else
                 showHeader.innerHTML = "No " + animal + " images found"; 
+
+            // set this button as active and remove from other buttons if present
+            for (i=0 ; i<button.length ; i++) {
+                if (button[i] === this)
+                    this.classList.add("active-btn");
+                else
+                    button[i].classList.remove("active-btn")
+            }
+            
         });
     }
 
