@@ -66,6 +66,13 @@ eleventyNavigation:
     // get an array of images
     const images = document.querySelectorAll(".imageFilter");
 
+    // get the search input
+    const textSearch = document.getElementById("searchText");
+    
+     // get the search button
+    const buttonSearch = document.getElementById("searchButton");
+
+    // get the description header of images shown
     const showHeader = document.getElementById("showingTitle");
 
     // loop through buttons
@@ -100,8 +107,9 @@ eleventyNavigation:
                 if (button[i] === this)
                     this.classList.add("active-btn");
                 else
-                    button[i].classList.remove("active-btn")
+                    button[i].classList.remove("active-btn");
             }
+            buttonSearch.classList.remove("active-btn");
             
         });
     }
@@ -127,13 +135,13 @@ eleventyNavigation:
         else
             showHeader.innerHTML = "No images with " + value + " in the caption found"; 
 
+        // make search button active
+        buttonSearch.classList.add("active-btn");
+
+        // make all other button inactive
+        for (i=0 ; i<button.length ; i++) 
+            button[i].classList.remove("active-btn");
     }
-
-    // get the search input
-    const textSearch = document.getElementById("searchText");
-    const buttonSearch = document.getElementById("searchButton");
-
-    // get the search button
 
     textSearch.addEventListener('keypress', function(event){
         if (event.key === 'Enter') {
