@@ -1,7 +1,7 @@
 [
     {
         "animal": "tiger",
-        "filename": "/img/animals/tigerEating.jpg",
+        "filename": "https://images.pexels.com/photos/2642315/pexels-photo-2642315.jpeg?cs=srgb&dl=pexels-alexander-isreb-2642315.jpg&fm=jpg",
         "description": "Tiger eating"
     },
     {
@@ -11,12 +11,12 @@
     },
     {
         "animal": "panda",
-        "filename": "/img/animals/pandaInTree.jpg",
+        "filename": "https://images.pexels.com/photos/5504764/pexels-photo-5504764.jpeg?cs=srgb&dl=pexels-mike-van-schoonderwalt-5504764.jpg&fm=jpg",
         "description": "Panda in tree"
     },
     {
         "animal": "lion",
-        "filename": "/img/animals/lionWalking.jpg",
+        "filename": "https://images.pexels.com/photos/1598377/pexels-photo-1598377.jpeg?cs=srgb&dl=pexels-gareth-davies-1598377.jpg&fm=jpg",
         "description": "Lion walking"
     },
     {
@@ -26,27 +26,27 @@
     },
     {
         "animal": "panda",
-        "filename": "/img/animals/pandaPlayingWCub.jpg",
+        "filename": "https://images.pexels.com/photos/1661535/pexels-photo-1661535.jpeg?cs=srgb&dl=pexels-diana-silaraja-1661535.jpg&fm=jpg",
         "description": "Panda playing with its cub"
     },
     {
         "animal": "tiger",
-        "filename": "/img/animals/tigerWalking.jpg",
+        "filename": "https://images.pexels.com/photos/2668605/pexels-photo-2668605.jpeg?cs=srgb&dl=pexels-robert-stokoe-2668605.jpg&fm=jpg",
         "description": "Tiger walking"
     },
     {
         "animal": "lion",
-        "filename": "/img/animals/lionEating.jpg",
+        "filename": "https://images.pexels.com/photos/627667/pexels-photo-627667.jpeg?cs=srgb&dl=pexels-frans-van-heerden-627667.jpg&fm=jpg",
         "description": "Lion eating"
     },
     {
         "animal": "panda",
-        "filename": "/img/animals/pandaWalking.jpg",
+        "filename": "https://images.pexels.com/photos/3935509/pexels-photo-3935509.jpeg?cs=srgb&dl=pexels-irina-babina-nature-and-wildlife-3935509.jpg&fm=jpg",
         "description": "Panda walking"
     },
     {
         "animal": "tiger",
-        "filename": "/img/animals/tigerSleeping.jpg",
+        "filename": "https://images.pexels.com/photos/2040906/pexels-photo-2040906.jpeg?cs=srgb&dl=pexels-martin-martz-2040906.jpg&fm=jpg",
         "description": "Tiger sleeping"
     },
     {
@@ -56,17 +56,17 @@
     },
     {
         "animal": "tiger",
-        "filename": "/img/animals/tigerWCub.jpg",
+        "filename": "https://images.pexels.com/photos/2541239/pexels-photo-2541239.jpeg?cs=srgb&dl=pexels-waldemar-brandt-2541239.jpg&fm=jpg",
         "description": "Tiger with its cub"
     },
     {
         "animal": "panda",
-        "filename": "/img/animals/pandaEating.jpg",
+        "filename": "https://images.pexels.com/photos/6939448/pexels-photo-6939448.jpeg?cs=srgb&dl=pexels-mark-de-jong-6939448.jpg&fm=jpg",
         "description": "Panda eating"
     },
     {
         "animal": "lion",
-        "filename": "/img/animals/lionPlaying.jpg",
+        "filename": "https://images.pexels.com/photos/730539/pexels-photo-730539.jpeg?cs=srgb&dl=pexels-gary-whyte-730539.jpg&fm=jpg",
         "description": "Lion playing"
     },
     {
@@ -76,7 +76,15 @@
     },
     {
         "animal": "lion",
-        "filename": "/img/animals/lionSleeping.jpg",
+        "filename": "https://images.pexels.com/photos/1187987/pexels-photo-1187987.jpeg?cs=srgb&dl=pexels-aldo-picaso-1187987.jpg&fm=jpg",
         "description": "Lion sleeping"
+    },
+    {   "animal": "tiger",
+        "filename": "https://images.pexels.com/photos/302276/pexels-photo-302276.jpeg?cs=srgb&dl=pexels-pixabay-302276.jpg&fm=jpg",
+        "description": "Tiger in the snow"
+    },
+    {   "animal": "panda",
+        "filename": "https://images.pexels.com/photos/4741848/pexels-photo-4741848.jpeg?cs=srgb&dl=pexels-michael-noel-4741848.jpg&fm=jpg",
+        "description": " Panda sleeping"
     }
 ]
