@@ -50,5 +50,38 @@
             "11 x 12 = 132",
             "12 x 12 = 144"
         ]
+    },
+    {
+        "taskname": "Task2: Create and Access Array",
+        "label": "createaccessarray",
+        "code": [
+            "var favouriteFoods = ['apple', 'carrot', 'fresh peas', 'salmon', 'leeks'];",
+            "console.log(favouriteFoods[0]);",
+            "console.log(favouriteFoods[2]);",
+            "console.log(favouriteFoods[4]);"
+        ],
+        "results": [
+            "apple",
+            "fresh peas",
+            "leeks"    
+        ]
+    },
+    {
+        "taskname": "Task3: Loop Through an Array",
+        "label": "loopthrougharray",
+        "code": [
+            "var favouriteFoods = ['apple', 'carrot', 'fresh peas', 'salmon', 'leeks'];",
+            "for (var i=0 ; i<favouriteFoods.length ; i++){",
+            "    console.log(favouriteFoods[i]);",
+            "}"
+        ],
+        "results":[
+            "apple",
+            "carrot",
+            "fresh peas",
+            "salmon",
+            "leeks"
+        ]
+        
     }
 ]

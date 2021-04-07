@@ -7,16 +7,87 @@ eleventyNavigation:
   parent: Javascript
   order: 5
 ---
-<div class="container mt-5">
-    <h1>Loops, Arrays and Objects</h1>
 
-    <br>
+<h1>Loops, Arrays and Objects</h1>
 
-    {% set jscodelist = jsloopsarraysobjects %}
-    {% include "jscoderesults.njk" %}
+<br>
 
+{% set jscodelist = jsloopsarraysobjects %}
+{% include "jscoderesults.njk" %}
 
+<br>
+<h2>Task4: Objects</h2>
+<p>First the code. The results for this code are right at the end of 
+this page because document.write is used in the code instead of console.log</p>
+<pre>
+let myRecipe = {
+    title: 'Chicken noodles',
+    servings: 2,
+    ingredients: ['chicken','onions','noodles','tomatoes'],
+    directions: ['Fry the chicken','Add the onions, tomatoes and noodles'],
+    letsCook: function() {
+        document.write('I am hungry!! Lets cook ' + this.title + '&lt;br&gt;');
+    }
+}
+</pre>
+<pre>
+document.write(myRecipe.title + '&lt;br&gt');
+document.write(`serves ${myRecipe.servings} &lt;br&gt`);
+document.write(myRecipe.ingredients.join(', ') + '&lt;br&gt');
+document.write(myRecipe.directions.join('. ')+'. &lt;br&gt');
+</pre>
+<pre>
+for (i=0 ; i&lt;myRecipe.ingredients.length ; i++){
+    document.write(`- ${myRecipe.ingredients[i]}&lt;br&gt`);
+}
+for (i=0 ; i&lt;myRecipe.directions.length ; i++){
+    document.write(`- ${myRecipe.directions[i]}&lt;br&gt`);
+}
+</pre> 
+<pre>
+myRecipe.letsCook();
+</pre>
+
+<br>
+<h2>Objects can also hold functions</h2>
+<div class="container=fluid p-0 m-0 bg-light">
+    <div class="row">
+        <div class="col pe-0">
+            <div class="border-end border-info">
+                <h3 class="text-center bg-primary py-2 mb-0"> Code </h3>
+                <pre class="m-0 bg-light">
+var alexa = {
+    age: 34,
+    hairColour: 'black',
+    talk: function() {
+        console.log('I am listening');
+    },
+    eat: function(food) {
+        console.log(`Yum, I love ${food}`);
+    }
+};
+
+alexa.talk();
+alexa.eat('pizza');
+                </pre>
+            </div>
+        </div>
+
+        <div class="col ps-0">    
+            <h3 class="text-center bg-success py-2 mb-0"> Results </h3> 
+                <div class="border-start border-info">
+                    <pre class="m-0 bg-light">
+I am listening
+Yum, I love pizza              
+                    </pre>
+                </div>    
+        </div>
+
+    </div>
 </div>
+
+<br>
+<h3>Output of objects code above</h3>
 
 <script>
     console.log('----------------------task 1: times tables -----------')
