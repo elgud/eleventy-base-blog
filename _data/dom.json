@@ -1,0 +1,22 @@
+[
+    {
+        "taskname": "Task 1: Change colour of heading, image, and image size.",
+        "label": "domtask1",
+        "description": "Click on button to see the header change colour and the image change in both picture and size.",
+        "html": [
+            "<div id=\"task1wrapper\">",
+            "<h2 id=task1-header>Hello from task 1</h2>",
+            "<img src=\"https://placekitten.com/g/600/500\" />",
+            "<button onclick=\"task1()\">Click me to run this</button>",
+            "</div>"
+        ],
+        "javascript": [
+            "function task1() {",
+            "    var image = document.getElementsByTagName('img')[1];",
+            "    image.src = 'https://placekitten.com/g/200/200';",
+            "    var header = document.getElementById('task1-header');",
+            "    header.style.color = 'blue';",
+            "}"
+        ]
+    }
+]
