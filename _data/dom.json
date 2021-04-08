@@ -5,9 +5,9 @@
         "description": "Click on button to see the header change colour and the image change in both picture and size.",
         "html": [
             "<div id=\"task1wrapper\">",
-            "<h2 id=task1-header>Hello from task 1</h2>",
-            "<img src=\"https://placekitten.com/g/600/500\" />",
-            "<button onclick=\"task1()\">Click me to run this</button>",
+            "    <h2 id=task1-header>Hello from task 1</h2>",
+            "    <img src=\"https://placekitten.com/g/600/500\" />",
+            "    <button onclick=\"task1()\">Click me to run this</button>",
             "</div>"
         ],
         "javascript": [
@@ -16,6 +16,28 @@
             "    image.src = 'https://placekitten.com/g/200/200';",
             "    var header = document.getElementById('task1-header');",
             "    header.style.color = 'blue';",
+            "}"
+        ]
+    },
+    {
+        "taskname": "Task 2: Append content to a tag with a particular id",
+        "label": "domtask2",
+        "description": "Click on the button to add content. Content will be added below the button. The same content will be added repeatedly if you keep clicking the button.",
+        "html": [
+            "<div id=\"task2wrapper\">",
+            "    <h2>This is task 2</h2>",
+            "    <button onclick=\"task2()\">Click to add content</button>",
+            "</div>"
+        ],
+        "javascript": [
+            "function task2() {",
+            "    var theP = document.createElement('p');",
+            "    var theText = document.createTextNode('There is no danger here');",
+            " ",
+            "    theP.appendChild(theText);",
+            " ",
+            "    var task2wrapper = document.getElementById('task2wrapper');",
+            "    task2wrapper.appendChild(theP);",
             "}"
         ]
     }
