@@ -7,9 +7,124 @@ eleventyNavigation:
   parent: Javascript
   order: 6
 ---
-<div class="container mt-5">
-    <h1>Practical2: Shopping Cart</h1>
-</div>
+
+<h1>Practical2: Shopping Cart and calculation of averages</h1>
+<br>
+<h2>Shopping cart</h2>
+<p>To calcuate total prices and possible discounts, we first need to create some 
+(fictional) shopping carts:</p>
+<pre>
+var cart1 = [
+  {name: 'apples', price: 1.20, quantity: 1, type: "food"},
+  {name: 'oranges', price: 1.05, quantity: 2, type: "food"},
+  {name: 'pens', price: 0.5, quantity: 3, type: "stationary"},
+  {name: 'A5 notebook', price: 1.50, quantity: 2, type: "stationary"}
+]
+</pre>
+<pre>
+var cart2 = [
+  {name: 'pears', price: 1.00, quantity: 2, type: "food"},
+  {name: 'salmon', price: 2.65, quantity: 1, type: "food"},
+  {name: 'thumb drive', price: 21.95, quantity: 1, type: "computing"},
+  {name: 'bucket', price: 1.50, quantity: 2, type: "home"},
+  {name: 'easter egg', price: 2.45, quantity: 3, type: "food"}
+]
+</pre>
+<pre>
+let shoppingCart = [
+    {
+        name:"loaf of bread",
+        type:"food",
+        quantity:1,
+        price:.85
+    },
+    {
+        name:"multipack beans",
+        type:"food",
+        quantity:2,
+        price:1
+    },
+    {
+        name:"mushrooms",
+        type:"food",
+        quantity:10,
+        price:.1
+    },
+    {
+        name:"can of beer",
+        type:"alcohol",
+        quantity:4,
+        price:1.1
+    },
+    {
+        name:"prosecco",
+        type:"alcohol",
+        quantity:1,
+        price:8.99
+    },
+    {
+        name:"steak",
+        type:"food",
+        quantity:2,
+        price:3.99
+    },
+    {
+        name:"blue cheese",
+        type:"food",
+        quantity:1,
+        price:2.99
+    },
+    {
+        name:"candles",
+        type:"home",
+        quantity:3,
+        price:1.99
+    },
+    {
+        name:"cheesecake",
+        type:"food",
+        quantity:1,
+        price:4.99
+    },
+    {
+        name:"onions",
+        type:"food",
+        quantity:3,
+        price:.4
+    },
+];
+</pre>
+<br>
+<h3>Functions</h3>
+<p>Simple function to calculate the total cost of a shopping cart</p>
+<pre>
+function cartPrice(cart) {
+  let totalPrice = 0;
+  for (i=0 ; i<cart.length ; i++)
+  {
+    currentItem = cart[i];
+    totalPrice += currentItem.price * currentItem.quantity;
+  }
+  return totalPrice;
+}
+</pre>
+<p>Pendantic function to calculate the total cost of a shopping cost. Also applies
+a 30% discount to food items</p>
+<pre>
+function shoppingTotal(cart) {
+  let totalPrice = 0;
+  for (let i=0 ; i<cart.length ; i++) {
+    let itemPrice = cart[i].price;
+    if (cart[i].type === 'food') {
+      itemPrice = .8 * itemPrice;
+    }
+    let itemQuantity = cart[i].quantity;
+    let itemTotalPrice = itemPrice * itemQuantity;
+    totalPrice = totalPrice + itemTotalPrice;
+  }
+  return totalPrice.toFixed(2);
+}
+</pre>
 
 
 <script>
